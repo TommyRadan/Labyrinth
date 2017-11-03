@@ -1,4 +1,4 @@
-#include <Control/Settings.hpp>
+#include <Infrastructure/Settings.hpp>
 
 Settings::Settings()
 {

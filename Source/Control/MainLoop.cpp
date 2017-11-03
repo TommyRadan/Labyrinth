@@ -15,15 +15,21 @@ int main(int argc, char* argv[])
     catch (const Exception& e)
     {
         RenderingEngine::Window::GetInstance()->ShowMessage("Initialization Error", e.what());
-        return -1;
+        return EXIT_FAILURE;
     }
 
     try
     {
         for (;;)
         {
+            RenderingEngine::Window::GetInstance()->Clear();
+
             EventProcessing::GetInstance()->Process();
             EventProcessing::GetInstance()->Update();
+
+            /**
+             * TODO: Render the scene here.
+             */
 
             RenderingEngine::Window::GetInstance()->SwapBuffers();
 
@@ -33,10 +39,10 @@ int main(int argc, char* argv[])
     catch (const Exception& e)
     {
         RenderingEngine::Window::GetInstance()->ShowMessage("Error", e.what());
-        return -1;
+        return EXIT_FAILURE;
     }
 
     RenderingEngine::Window::GetInstance()->Quit();
     EventProcessing::GetInstance()->Quit();
-    return 0;
+    return EXIT_SUCCESS;
 }

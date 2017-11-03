@@ -10,18 +10,12 @@ namespace RenderingEngine
         Window();
 
     public:
-        static Window* GetInstance()
-        {
-            static Window* instance = nullptr;
-            if(instance == nullptr) {
-                instance = new Window();
-            }
-            return instance;
-        }
+        static Window* GetInstance();
 
         void Init() final;
         void Quit() final;
 
+        void Clear();
         void SwapBuffers();
         void ShowMessage(const std::string& title, const std::string& message);
 
