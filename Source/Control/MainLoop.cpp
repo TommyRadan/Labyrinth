@@ -1,18 +1,39 @@
 #include <EventProcessing/EventProcessing.hpp>
+#include <Infrastructure/Exception.hpp>
 
 int main(int argc, char* argv[])
 {
-	(void) argc;
-	(void) argv;
+    (void) argc;
+    (void) argv;
 
-    EventProcessing::GetInstance()->Init();
-
-    for (;;)
+    try
     {
-        EventProcessing::GetInstance()->Process();
-        EventProcessing::GetInstance()->Update();
+        EventProcessing::GetInstance()->Init();
+    }
+    catch (const Exception& e)
+    {
+        /**
+         * TODO: Output problem in message window.
+         */
+        return -1;
+    }
 
-        if (EventProcessing::GetInstance()->IsQuitRequested()) break;
+    try
+    {
+        for (;;)
+        {
+            EventProcessing::GetInstance()->Process();
+            EventProcessing::GetInstance()->Update();
+
+            if (EventProcessing::GetInstance()->IsQuitRequested()) break;
+        }
+    }
+    catch (const Exception& e)
+    {
+        /**
+         * TODO: Output problem in message window.
+         */
+        return -1;
     }
 
     EventProcessing::GetInstance()->Quit();

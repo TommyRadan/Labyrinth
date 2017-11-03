@@ -1,5 +1,6 @@
 #include <EventProcessing/EventProcessing.hpp>
 #include <SDL2/SDL.h>
+#include <Infrastructure/Exception.hpp>
 
 EventProcessing::EventProcessing() :
     m_IsUserQuit { false }
@@ -21,15 +22,12 @@ void EventProcessing::Init()
 {
 	if (m_IsInitialized)
 	{
-		return;
+		throw Exception("EventProcessing second initialization attempt");
 	}
 
 	if (SDL_InitSubSystem(SDL_INIT_VIDEO) != 0)
     {
-        /**
-         * TODO: Trace error that initialization failed!
-         */
-        return;
+        throw Exception("Could not initialize event system");
     }
 
     m_IsInitialized = true;
@@ -39,7 +37,7 @@ void EventProcessing::Quit()
 {
 	if (!m_IsInitialized)
     {
-		return;
+        throw Exception("EventProcessing quit attempt without initialization");
 	}
 
 	SDL_QuitSubSystem(SDL_INIT_VIDEO);
@@ -49,7 +47,7 @@ void EventProcessing::Quit()
 
 void EventProcessing::Process()
 {
-    SDL_Event events;
+    SDL_Event events = { 0 };
     while (SDL_PollEvent(&events))
     {
         switch (events.type)

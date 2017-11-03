@@ -17,12 +17,14 @@ include_directories(${GLEW_INCLUDE_DIR})
 # Define header files
 set(LABYRINTH_HEADER_FILES
         Include/EventProcessing/EventProcessing.hpp
-        Include/Infrastructure/Component.hpp)
+        Include/Infrastructure/Component.hpp
+        Include/Infrastructure/Exception.hpp)
 
 # Define source files
 set(LABYRINTH_SOURCE_FILES
         Source/EventProcessing/EventProcessing.cpp
-        Source/Infrastructure/Component.cpp)
+        Source/Infrastructure/Component.cpp
+        Source/Infrastructure/Exception.cpp)
 
 # Define main executable
 add_executable(Labyrinth
