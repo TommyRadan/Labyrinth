@@ -1,6 +1,6 @@
 #include <RenderingEngine/Window.hpp>
+#include <RenderingEngine/OpenGL/OpenGL.hpp>
 #include <SDL2/SDL.h>
-#include <GL/glew.h>
 #include <Infrastructure/Settings.hpp>
 #include <Infrastructure/Exception.hpp>
 
@@ -62,19 +62,6 @@ namespace RenderingEngine
         }
 
         m_GlContext = SDL_GL_CreateContext((SDL_Window*) m_Window);
-
-        if (glewInit() != GLEW_OK)
-        {
-            throw Exception("Failed to find OpenGL support");
-        }
-
-        glGetIntegerv(GL_MAJOR_VERSION, &majorVersion);
-        glGetIntegerv(GL_MINOR_VERSION, &minorVersion);
-
-        if (majorVersion < 3 || (majorVersion == 3 && minorVersion < 3))
-        {
-            throw Exception("This game requires OpenGL 3.3 support");
-        }
     }
 
     void Window::Quit()
@@ -85,8 +72,9 @@ namespace RenderingEngine
 
     void Window::Clear()
     {
-        glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
-        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+        OpenGL::Context::GetInstance()->ClearColor(OpenGL::Color(0, 0, 0, 255));
+        OpenGL::Context::GetInstance()->Clear(OpenGL::Buffer::Color);
+        OpenGL::Context::GetInstance()->Clear(OpenGL::Buffer::Depth);
     }
 
     void Window::SwapBuffers()

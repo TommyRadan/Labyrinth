@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.2)
 project(Labyrinth)
 
-set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/CMake)
 
 # Find external dependencies
@@ -27,6 +27,15 @@ include_directories(${source_dir}/glm)
 # Define header files
 set(LABYRINTH_HEADER_FILES
         Include/EventProcessing/EventProcessing.hpp
+        Include/RenderingEngine/OpenGL/Color.hpp
+        Include/RenderingEngine/OpenGL/Framebuffer.hpp
+        Include/RenderingEngine/OpenGL/OpenGL.hpp
+        Include/RenderingEngine/OpenGL/Program.hpp
+        Include/RenderingEngine/OpenGL/Shader.hpp
+        Include/RenderingEngine/OpenGL/Texture.hpp
+        Include/RenderingEngine/OpenGL/Typedef.hpp
+        Include/RenderingEngine/OpenGL/VertexArray.hpp
+        Include/RenderingEngine/OpenGL/VertexBuffer.hpp
         Include/RenderingEngine/Window.hpp
         Include/RenderingEngine/Camera.hpp
         Include/Infrastructure/Component.hpp
@@ -36,6 +45,13 @@ set(LABYRINTH_HEADER_FILES
 # Define source files
 set(LABYRINTH_SOURCE_FILES
         Source/EventProcessing/EventProcessing.cpp
+        Source/RenderingEngine/OpenGL/Framebuffer.cpp
+        Source/RenderingEngine/OpenGL/OpenGL.cpp
+        Source/RenderingEngine/OpenGL/Program.cpp
+        Source/RenderingEngine/OpenGL/Shader.cpp
+        Source/RenderingEngine/OpenGL/Texture.cpp
+        Source/RenderingEngine/OpenGL/VertexArray.cpp
+        Source/RenderingEngine/OpenGL/VertexBuffer.cpp
         Source/RenderingEngine/Window.cpp
         Source/RenderingEngine/Camera.cpp
         Source/Infrastructure/Component.cpp
