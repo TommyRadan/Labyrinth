@@ -1,6 +1,7 @@
 #include <EventProcessing/EventProcessing.hpp>
 #include <RenderingEngine/Window.hpp>
 #include <Infrastructure/Exception.hpp>
+#include <RenderingEngine/OpenGL/OpenGL.hpp>
 
 int main(int argc, char* argv[])
 {
@@ -11,6 +12,7 @@ int main(int argc, char* argv[])
     {
         EventProcessing::GetInstance()->Init();
         RenderingEngine::Window::GetInstance()->Init();
+        RenderingEngine::OpenGL::Context::GetInstance()->Init();
     }
     catch (const Exception& e)
     {
@@ -42,6 +44,7 @@ int main(int argc, char* argv[])
         return EXIT_FAILURE;
     }
 
+    RenderingEngine::OpenGL::Context::GetInstance()->Quit();
     RenderingEngine::Window::GetInstance()->Quit();
     EventProcessing::GetInstance()->Quit();
     return EXIT_SUCCESS;

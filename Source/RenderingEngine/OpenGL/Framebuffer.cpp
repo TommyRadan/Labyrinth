@@ -1,4 +1,5 @@
 #include <RenderingEngine/OpenGL/Framebuffer.hpp>
+#include <Infrastructure/Exception.hpp>
 
 #define PUSHSTATE() GLint restoreId; glGetIntegerv( GL_DRAW_FRAMEBUFFER_BINDING, &restoreId );
 #define POPSTATE() glBindFramebuffer( GL_DRAW_FRAMEBUFFER, restoreId );

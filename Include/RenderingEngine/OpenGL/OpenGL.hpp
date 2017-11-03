@@ -9,7 +9,6 @@
 #include <RenderingEngine/OpenGL/VertexBuffer.hpp>
 #include <RenderingEngine/OpenGL/Color.hpp>
 
-#include <Infrastructure/Exception.hpp>
 #include <Infrastructure/Component.hpp>
 
 namespace RenderingEngine::OpenGL

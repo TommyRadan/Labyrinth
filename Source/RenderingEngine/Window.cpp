@@ -26,7 +26,6 @@ namespace RenderingEngine
         Settings* settings = Settings::GetInstance();
         uint32_t window_flags = SDL_WINDOW_OPENGL;
         WinType type = settings->GetWindowType();
-        int majorVersion = 0, minorVersion = 0;
 
         if (type == WinType::WIN_TYPE_BORDERLESS)
         {

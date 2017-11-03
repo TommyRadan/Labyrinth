@@ -1,4 +1,5 @@
 #include <RenderingEngine/OpenGL/Program.hpp>
+#include <Infrastructure/Exception.hpp>
 
 namespace RenderingEngine::OpenGL
 {

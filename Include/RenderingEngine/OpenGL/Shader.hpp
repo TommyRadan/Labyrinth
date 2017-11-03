@@ -5,8 +5,6 @@
 #include <exception>
 #include <string>
 
-#include <Infrastructure/Exception.hpp>
-
 namespace RenderingEngine::OpenGL
 {
 	struct Shader
