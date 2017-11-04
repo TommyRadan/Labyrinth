@@ -1,41 +1,51 @@
+#include <Labyrinth/Labyrinth.hpp>
+
 #include <algorithm>
-#include <iostream>
 
-#include "Labyrinth.h"
-
-Labyrinth::Labyrinth()
+enum Direction
 {
-    m_width = LabyrinthDefault::Width;
-    m_height = LabyrinthDefault::Height;
+    NORTH ,
+    EAST,
+    SOUTH,
+    WEST,
+    NUMBER_OF_DIRECTIONS
+};
 
-    m_grid = new char[m_width * m_height];
-}
-
-Labyrinth::Labyrinth(const int32_t& width, const int32_t& height) : m_width(width), m_height(height)
+Labyrinth::Labyrinth(const int32_t width, const int32_t height) :
+        m_Width { width },
+        m_Height { height }
 {
-    if ((m_width % 2) == 0)
+    if ((m_Width % 2) == 0)
     {
-        m_width++;
+        m_Width++;
     }
 
-    if ((m_height % 2) == 0)
+    if ((m_Height % 2) == 0)
     {
-        m_height++;
+        m_Height++;
     }
 
-    m_grid = new char[m_width * m_height];
+    m_Grid = new char[m_Width * m_Height];
+
+    ResetGrid();
+    SpawnStartAndEndLocation();
 }
 
 Labyrinth::~Labyrinth()
 {
-    delete[] m_grid;
+    delete[] m_Grid;
+}
+
+bool Labyrinth::IsWalled(int32_t x, int32_t y)
+{
+    return (m_Grid[XYToIndex(x, y)] == '#');
 }
 
 void Labyrinth::ResetGrid()
 {
-    for (int32_t i = 0; i < (m_width * m_height); i++)
+    for (int32_t i = 0; i < (m_Width * m_Height); i++)
     {
-        m_grid[i] = '#';
+        m_Grid[i] = '#';
     }
 }
 
@@ -45,28 +55,28 @@ int32_t Labyrinth::GetRandomIndexInQuadrant(int32_t quadrant)
     int32_t y;
 
     int32_t minX = 0;
-    int32_t maxX = m_width;
+    int32_t maxX = m_Width;
 
     int32_t minY = 0;
-    int32_t maxY = m_height;
+    int32_t maxY = m_Height;
 
     switch (quadrant)
     {
         case 1:
-            maxX = m_width / 2;
-            maxY = m_height / 2;
+            maxX = m_Width / 2;
+            maxY = m_Height / 2;
             break;
         case 2:
-            minX = m_width / 2;
-            maxY = m_height / 2;
+            minX = m_Width / 2;
+            maxY = m_Height / 2;
             break;
         case 3:
-            minY = m_height / 2;
-            maxX = m_width / 2;
+            minY = m_Height / 2;
+            maxX = m_Width / 2;
             break;
         case 4:
-            minX = m_width / 2;
-            minY = m_height / 2;
+            minX = m_Width / 2;
+            minY = m_Height / 2;
             break;
         default:
             break;
@@ -76,7 +86,8 @@ int32_t Labyrinth::GetRandomIndexInQuadrant(int32_t quadrant)
     {
         x = rand() % (maxX - minX) + minX;
         y = rand() % (maxY - minY) + minY;
-    } while (m_grid[XYToIndex(x, y)] != ' ');
+    }
+    while (m_Grid[XYToIndex(x, y)] != ' ');
 
     return XYToIndex(x, y);
 }
@@ -92,23 +103,23 @@ void Labyrinth::SpawnStartAndEndLocation()
     startIndex = GetRandomIndexInQuadrant(quadrant[0]);
     endIndex = GetRandomIndexInQuadrant(quadrant[1]);
 
-    m_grid[startIndex] = 'S';
-    m_grid[endIndex] = 'E';
+    m_Grid[startIndex] = 'S';
+    m_Grid[endIndex] = 'E';
 }
 
-int32_t Labyrinth::XYToIndex(const int32_t& x, const int32_t& y)
+int32_t Labyrinth::XYToIndex(const int32_t x, const int32_t y)
 {
-    return y * m_width + x;
+    return y * m_Width + x;
 }
 
-bool Labyrinth::IsInBounds(const int32_t& x, const int32_t& y)
+bool Labyrinth::IsInBounds(const int32_t x, const int32_t y)
 {
-    if ((x < 0) || (x >= m_width))
+    if ((x < 0) || (x >= m_Width))
     {
         return false;
     }
 
-    if ((y < 0) || (y >= m_height))
+    if ((y < 0) || (y >= m_Height))
     {
         return false;
     }
@@ -116,12 +127,12 @@ bool Labyrinth::IsInBounds(const int32_t& x, const int32_t& y)
     return true;
 }
 
-void Labyrinth::Visit(const int32_t& x, const int32_t& y)
+void Labyrinth::Visit(const int32_t x, const int32_t y)
 {
     int directions[] = { NORTH, EAST, SOUTH, WEST };
     std::random_shuffle(directions, directions + NUMBER_OF_DIRECTIONS);
 
-    m_grid[XYToIndex(x, y)] = ' ';
+    m_Grid[XYToIndex(x, y)] = ' ';
 
     for (uint32_t i = 0; i < NUMBER_OF_DIRECTIONS; i++)
     {
@@ -152,23 +163,10 @@ void Labyrinth::Visit(const int32_t& x, const int32_t& y)
         x2 = x + (dx * 2);
         y2 = y + (dy * 2);
 
-        if (IsInBounds(x2, y2) && (m_grid[XYToIndex(x2, y2)] == '#'))
+        if (IsInBounds(x2, y2) && (m_Grid[XYToIndex(x2, y2)] == '#'))
         {
-                m_grid[XYToIndex(x2 - dx, y2 - dy)] = ' ';
+                m_Grid[XYToIndex(x2 - dx, y2 - dy)] = ' ';
                 Visit(x2, y2);
         }
-    }
-}
-
-void Labyrinth::PrintGrid()
-{
-    for (int32_t y = 0; y < m_height; y++)
-    {
-        for (int32_t x = 0; x < m_width; x++)
-        {
-            std::cout << m_grid[XYToIndex(x, y)];
-        }
-
-        std::cout << "\n";
     }
 }
