@@ -3,7 +3,7 @@
 #include <gtx/transform.hpp>
 #include <Infrastructure/Settings.hpp>
 
-Camera::Camera()
+RenderingEngine::Camera::Camera()
 {
     m_Position = glm::vec3(0.0f, 0.0f, 0.0f);
     m_LookAt = glm::vec3(1.0f, 0.0f, 0.0f);
@@ -20,7 +20,7 @@ Camera::Camera()
     m_IsViewMatrixDirty = true;
 }
 
-Camera* Camera::GetInstance()
+RenderingEngine::Camera* RenderingEngine::Camera::GetInstance()
 {
     static Camera* instance = nullptr;
 
@@ -32,27 +32,27 @@ Camera* Camera::GetInstance()
     return instance;
 }
 
-void Camera::SetPosition(const glm::vec3& pos)
+void RenderingEngine::Camera::SetPosition(const glm::vec3& pos)
 {
     m_Position = pos;
     m_IsViewMatrixDirty = true;
 }
 
-void Camera::SetRotation(const glm::vec3& rotation)
+void RenderingEngine::Camera::SetRotation(const glm::vec3& rotation)
 {
     m_Rotation = rotation;
     m_LookAt = m_Position + glm::normalize(m_Rotation);
     m_IsViewMatrixDirty = true;
 }
 
-void Camera::SetLookAt(const glm::vec3& lookAt)
+void RenderingEngine::Camera::SetLookAt(const glm::vec3& lookAt)
 {
     m_LookAt = lookAt;
     m_Rotation = glm::normalize(m_LookAt - m_Position);
     m_IsViewMatrixDirty = true;
 }
 
-glm::mat4 Camera::GetViewMatrix()
+glm::mat4 RenderingEngine::Camera::GetViewMatrix()
 {
     if (!m_IsViewMatrixDirty)
     {
@@ -65,7 +65,7 @@ glm::mat4 Camera::GetViewMatrix()
     return m_ViewMatrix;
 }
 
-glm::mat4 Camera::GetProjectionMatrix(void)
+glm::mat4 RenderingEngine::Camera::GetProjectionMatrix()
 {
     return m_Perspective;
 }
