@@ -15,6 +15,8 @@ ExternalProject_Add(glm
         PREFIX ${CMAKE_BINARY_DIR}/glm
         GIT_REPOSITORY https://github.com/g-truc/glm.git
         GIT_TAG master
+        CONFIGURE_COMMAND ""
+        BUILD_COMMAND ""
         INSTALL_COMMAND "")
 ExternalProject_Get_Property(glm source_dir)
 
@@ -39,8 +41,10 @@ set(LABYRINTH_HEADER_FILES
         Include/RenderingEngine/OpenGL/Typedef.hpp
         Include/RenderingEngine/OpenGL/VertexArray.hpp
         Include/RenderingEngine/OpenGL/VertexBuffer.hpp
+        Include/RenderingEngine/Renderers/BasicRenderer.hpp
         Include/RenderingEngine/Window.hpp
         Include/RenderingEngine/Camera.hpp
+        Include/RenderingEngine/RenderOptions.hpp
         Include/RenderingEngine/Renderer.hpp
         Include/Infrastructure/Component.hpp
         Include/Infrastructure/Exception.hpp
@@ -58,6 +62,7 @@ set(LABYRINTH_SOURCE_FILES
         Source/RenderingEngine/OpenGL/Texture.cpp
         Source/RenderingEngine/OpenGL/VertexArray.cpp
         Source/RenderingEngine/OpenGL/VertexBuffer.cpp
+        Source/RenderingEngine/Renderers/BasicRenderer.cpp
         Source/RenderingEngine/Window.cpp
         Source/RenderingEngine/Camera.cpp
         Source/RenderingEngine/Renderer.cpp

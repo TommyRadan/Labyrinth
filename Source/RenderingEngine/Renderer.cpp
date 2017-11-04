@@ -11,6 +11,34 @@ void RenderingEngine::Renderer::StopRenderer()
     static_cast<OpenGL::Program*>(m_Program)->Stop();
 }
 
+void RenderingEngine::Renderer::SetupOptions(const RenderOptions& options)
+{
+    for (auto& element : options.Coefficients)
+    {
+        this->UploadCoefficient(element.first, element.second);
+    }
+
+    for (auto& element : options.Colors)
+    {
+        auto vector = glm::vec4(
+                (float)element.second.R / 255.0f,
+                (float)element.second.G / 255.0f,
+                (float)element.second.B / 255.0f,
+                (float)element.second.A / 255.0f
+        );
+
+        this->UploadVector4(element.first, vector);
+    }
+
+    uint8_t uploadedTextureReferences = 0u;
+    for (auto& element : options.Textures)
+    {
+        this->UploadTextureReference(element.first, uploadedTextureReferences);
+        OpenGL::Context::GetInstance()->BindTexture(*element.second, uploadedTextureReferences);
+        uploadedTextureReferences++;
+    }
+}
+
 void RenderingEngine::Renderer::UploadTextureReference(const std::string& textureName, const int position)
 {
     OpenGL::Uniform uniform = static_cast<OpenGL::Program*>(m_Program)->GetUniform(textureName);
