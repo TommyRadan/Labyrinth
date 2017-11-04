@@ -41,6 +41,7 @@ set(LABYRINTH_HEADER_FILES
         Include/RenderingEngine/OpenGL/VertexBuffer.hpp
         Include/RenderingEngine/Window.hpp
         Include/RenderingEngine/Camera.hpp
+        Include/RenderingEngine/Renderer.hpp
         Include/Infrastructure/Component.hpp
         Include/Infrastructure/Exception.hpp
         Include/Infrastructure/Settings.hpp)
@@ -59,6 +60,7 @@ set(LABYRINTH_SOURCE_FILES
         Source/RenderingEngine/OpenGL/VertexBuffer.cpp
         Source/RenderingEngine/Window.cpp
         Source/RenderingEngine/Camera.cpp
+        Source/RenderingEngine/Renderer.cpp
         Source/Infrastructure/Component.cpp
         Source/Infrastructure/Exception.cpp
         Source/Infrastructure/Settings.cpp)
