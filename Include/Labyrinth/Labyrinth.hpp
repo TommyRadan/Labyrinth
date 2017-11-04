@@ -2,39 +2,27 @@
 
 #include <cstdint>
 
-enum LabyrinthDefault
+struct Labyrinth
 {
-    Height = 23,
-    Width = 79
-};
+    Labyrinth(int32_t width, int32_t height);
+    Labyrinth(Labyrinth&) = delete;
+    Labyrinth(Labyrinth&&) = delete;
+    Labyrinth& operator=(Labyrinth&) = delete;
+    Labyrinth& operator=(Labyrinth&&) = delete;
+    ~Labyrinth();
 
-enum Direction
-{
-    NORTH = 0,
-    EAST,
-    SOUTH,
-    WEST,
-    NUMBER_OF_DIRECTIONS
-};
+    bool IsWalled(int32_t x, int32_t y);
 
-class Labyrinth
-{
- public:
-     Labyrinth();
-     Labyrinth(const int32_t& width, const int32_t& height);
-     ~Labyrinth();
+private:
+    void ResetGrid();
+    void SpawnStartAndEndLocation();
+    void Visit(const int32_t x, const int32_t y);
 
-     void PrintGrid();
-     void ResetGrid();
-     void SpawnStartAndEndLocation();
-     void Visit(const int32_t& x, const int32_t& y);
+    int32_t GetRandomIndexInQuadrant(int32_t quadrant);
+    bool IsInBounds(const int32_t x, const int32_t y);
+    int32_t XYToIndex(const int32_t x, const int32_t y);
 
- private:
-     int32_t GetRandomIndexInQuadrant(int32_t quadrant);
-     bool IsInBounds(const int32_t& x, const int32_t& y);
-     int32_t XYToIndex(const int32_t& x, const int32_t& y);
-
-     char *m_grid;
-     int32_t m_height;
-     int32_t m_width;
+    char* m_Grid;
+    int32_t m_Height;
+    int32_t m_Width;
 };
