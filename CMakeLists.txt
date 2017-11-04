@@ -32,6 +32,7 @@ set(LABYRINTH_HEADER_FILES
         Include/RenderingEngine/Mesh/Mesh.hpp
         Include/RenderingEngine/Mesh/ObjLoader.hpp
         Include/RenderingEngine/Mesh/Vertex.hpp
+        Include/RenderingEngine/Mesh/TerrainGenerator.hpp
         Include/RenderingEngine/OpenGL/Color.hpp
         Include/RenderingEngine/OpenGL/Framebuffer.hpp
         Include/RenderingEngine/OpenGL/OpenGL.hpp
@@ -56,6 +57,7 @@ set(LABYRINTH_SOURCE_FILES
         Source/EventProcessing/EventProcessing.cpp
         Source/RenderingEngine/Mesh/Mesh.cpp
         Source/RenderingEngine/Mesh/ObjLoader.cpp
+        Source/RenderingEngine/Mesh/TerrainGenerator.cpp
         Source/RenderingEngine/OpenGL/Framebuffer.cpp
         Source/RenderingEngine/OpenGL/OpenGL.cpp
         Source/RenderingEngine/OpenGL/Program.cpp
