@@ -48,7 +48,8 @@ set(LABYRINTH_HEADER_FILES
         Include/RenderingEngine/Renderer.hpp
         Include/Infrastructure/Component.hpp
         Include/Infrastructure/Exception.hpp
-        Include/Infrastructure/Settings.hpp)
+        Include/Infrastructure/Settings.hpp
+        Include/Labyrinth/Labyrinth.hpp)
 
 # Define source files
 set(LABYRINTH_SOURCE_FILES
@@ -68,7 +69,8 @@ set(LABYRINTH_SOURCE_FILES
         Source/RenderingEngine/Renderer.cpp
         Source/Infrastructure/Component.cpp
         Source/Infrastructure/Exception.cpp
-        Source/Infrastructure/Settings.cpp)
+        Source/Infrastructure/Settings.cpp
+        Source/Labyrinth/Labyrinth.cpp)
 
 # Define main executable
 add_executable(Labyrinth
