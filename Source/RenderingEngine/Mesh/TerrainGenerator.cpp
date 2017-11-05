@@ -16,18 +16,18 @@ namespace RenderingEngine
                 v1.Pos.z = 0.0;
 
                 Vertex v2;
-                v2.Pos.x = i+1;
+                v2.Pos.x = i+10;
                 v2.Pos.y = j;
                 v2.Pos.z = 0.0;
 
                 Vertex v3;
                 v3.Pos.x = i;
-                v3.Pos.y = j+1;
+                v3.Pos.y = j+10;
                 v3.Pos.z = 0.0;
 
                 Vertex v4;
-                v4.Pos.x = i+1;
-                v4.Pos.y = j+1;
+                v4.Pos.x = i+10;
+                v4.Pos.y = j+10;
                 v4.Pos.z = 0.0;
 
                 terrain.push_back(v2);
