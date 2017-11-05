@@ -59,8 +59,6 @@ set(LABYRINTH_HEADER_FILES
 set(LABYRINTH_SOURCE_FILES
         Source/EventProcessing/EventProcessing.cpp
         Source/EventProcessing/EventHandler.cpp
-        Source/GameModules/CameraModule.cpp
-        Source/GameModules/ExitModule.cpp
         Source/RenderingEngine/Mesh/Mesh.cpp
         Source/RenderingEngine/Mesh/ObjLoader.cpp
         Source/RenderingEngine/Mesh/TerrainGenerator.cpp
@@ -80,10 +78,16 @@ set(LABYRINTH_SOURCE_FILES
         Source/Infrastructure/Settings.cpp
         Source/Labyrinth/Labyrinth.cpp)
 
+# Define game modules
+set(LABYRINTH_GAME_MODULES
+        GameModules/CameraModule.cpp
+        GameModules/ExitModule.cpp)
+
 # Define main executable
 add_executable(Labyrinth
         ${LABYRINTH_HEADER_FILES}
         ${LABYRINTH_SOURCE_FILES}
+        ${LABYRINTH_GAME_MODULES}
         Source/Control/MainLoop.cpp)
 
 # Add dependencies
