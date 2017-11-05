@@ -59,6 +59,7 @@ set(LABYRINTH_SOURCE_FILES
         Source/EventProcessing/EventProcessing.cpp
         Source/EventProcessing/EventHandler.cpp
         Source/GameModules/CameraModule.cpp
+        Source/GameModules/ExitModule.cpp
         Source/RenderingEngine/Mesh/Mesh.cpp
         Source/RenderingEngine/Mesh/ObjLoader.cpp
         Source/RenderingEngine/Mesh/TerrainGenerator.cpp
