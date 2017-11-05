@@ -2,6 +2,9 @@
 #include <EventProcessing/EventProcessing.hpp>
 #include <EventProcessing/EventHandler.hpp>
 #include <RenderingEngine/Camera.hpp>
+#include <Infrastructure/Settings.hpp>
+#define GLM_ENABLE_EXPERIMENTAL
+#include <gtx/vector_angle.hpp>
 #include <iostream>
 
 static void OnKeyPressed(EventProcessing::KeyCode keyCode, uint32_t deltaTime)
@@ -9,7 +12,12 @@ static void OnKeyPressed(EventProcessing::KeyCode keyCode, uint32_t deltaTime)
     glm::vec3 position = RenderingEngine::Camera::GetInstance()->GetPosition();
     glm::vec3 rotation = RenderingEngine::Camera::GetInstance()->GetRotation();
     float speed = 3.0f;
+    if (EventProcessing::EventHandler::GetInstance()->IsKeyPressed(EventProcessing::KeyCode::SHIFT))
+    {
+        speed = 30.0f;
+    }
     float distance = speed * ((float)deltaTime / 1000);
+    glm::vec3 upVector {0.0f, 0.0f, 1.0f};
 
     switch (keyCode)
     {
@@ -18,7 +26,8 @@ static void OnKeyPressed(EventProcessing::KeyCode keyCode, uint32_t deltaTime)
             break;
 
         case EventProcessing::KeyCode::A:
-            RenderingEngine::Camera::GetInstance()->SetPosition(position - glm::cross(rotation, glm::vec3 {0.0f, 0.0f, 1.0f}) * distance);
+            RenderingEngine::Camera::GetInstance()->SetPosition(position - glm::cross(rotation,
+                                                                                      upVector) * distance);
             break;
 
         case EventProcessing::KeyCode::S:
@@ -26,7 +35,8 @@ static void OnKeyPressed(EventProcessing::KeyCode keyCode, uint32_t deltaTime)
             break;
 
         case EventProcessing::KeyCode::D:
-            RenderingEngine::Camera::GetInstance()->SetPosition(position + glm::cross(rotation, glm::vec3 {0.0f, 0.0f, 1.0f}) * distance);
+            RenderingEngine::Camera::GetInstance()->SetPosition(position + glm::cross(rotation,
+                                                                                      upVector) * distance);
             break;
 
         case EventProcessing::KeyCode::SPACE:
@@ -42,15 +52,25 @@ static void OnKeyPressed(EventProcessing::KeyCode keyCode, uint32_t deltaTime)
     }
 }
 
-void OnFrame(uint32_t)
+static void OnMouseMove(int32_t deltaX, int32_t deltaY)
 {
-    glm::vec3 position = RenderingEngine::Camera::GetInstance()->GetPosition();
-    std::cout << position.x << " " << position.y << " " << position.z << std::endl;
+    glm::vec3 rotation = RenderingEngine::Camera::GetInstance()->GetRotation();
+    glm::vec3 rotationAxis {0.0f, 0.0f, 1.0f};
+    glm::vec3 upVector {0.0f, 0.0f, 1.0f};
+    glm::vec3 pitchAxis = glm::cross(glm::normalize(glm::vec3 {rotation.x, rotation.y, 0.0f}), upVector);
+
+    float sensitivity = Settings::GetInstance()->GetMouseSensitivity();
+    int pitchMultiplier = Settings::GetInstance()->IsMouseReversed() ? -1 : 1;
+
+    rotation = glm::vec4(rotation, 0.0f) * glm::rotate(sensitivity * deltaX, rotationAxis);
+    rotation = glm::vec4(rotation, 0.0f) * glm::rotate(pitchMultiplier * sensitivity * deltaY, pitchAxis);
+
+    RenderingEngine::Camera::GetInstance()->SetRotation(rotation);
 }
 
 bool ModuleInit()
 {
     EventProcessing::EventHandler::GetInstance()->RegisterKeyPressedCallback(OnKeyPressed);
-    EventProcessing::EventHandler::GetInstance()->RegisterOnFrameCallback(OnFrame);
+    EventProcessing::EventHandler::GetInstance()->RegisterOnMouseMoveCallback(OnMouseMove);
     return true;
 }
