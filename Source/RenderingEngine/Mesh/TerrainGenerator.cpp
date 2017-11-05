@@ -6,39 +6,33 @@ namespace RenderingEngine
     {
         std::vector<Vertex> terrain;
 
-        for (int i = -200; i < 200; i+=10)
-        {
-            for (int j = -200; j < 200; j+=10)
-            {
-                Vertex v1;
-                v1.Pos.x = i;
-                v1.Pos.y = j;
-                v1.Pos.z = 0.0;
+        Vertex v1;
+        v1.Pos.x = -200;
+        v1.Pos.y = -200;
+        v1.Pos.z = 0.0;
 
-                Vertex v2;
-                v2.Pos.x = i+10;
-                v2.Pos.y = j;
-                v2.Pos.z = 0.0;
+        Vertex v2;
+        v2.Pos.x = 200;
+        v2.Pos.y = -200;
+        v2.Pos.z = 0.0;
 
-                Vertex v3;
-                v3.Pos.x = i;
-                v3.Pos.y = j+10;
-                v3.Pos.z = 0.0;
+        Vertex v3;
+        v3.Pos.x = -200;
+        v3.Pos.y = 200;
+        v3.Pos.z = 0.0;
 
-                Vertex v4;
-                v4.Pos.x = i+10;
-                v4.Pos.y = j+10;
-                v4.Pos.z = 0.0;
+        Vertex v4;
+        v4.Pos.x = 200;
+        v4.Pos.y = 200;
+        v4.Pos.z = 0.0;
 
-                terrain.push_back(v2);
-                terrain.push_back(v1);
-                terrain.push_back(v3);
+        terrain.push_back(v2);
+        terrain.push_back(v1);
+        terrain.push_back(v3);
 
-                terrain.push_back(v4);
-                terrain.push_back(v2);
-                terrain.push_back(v3);
-            }
-        }
+        terrain.push_back(v4);
+        terrain.push_back(v2);
+        terrain.push_back(v3);
 
         return terrain;
     }
