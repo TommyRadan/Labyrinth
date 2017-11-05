@@ -15,6 +15,7 @@ ExternalProject_Add(glm
         PREFIX ${CMAKE_BINARY_DIR}/glm
         GIT_REPOSITORY https://github.com/g-truc/glm.git
         GIT_TAG master
+        UPDATE_COMMAND ""
         CONFIGURE_COMMAND ""
         BUILD_COMMAND ""
         INSTALL_COMMAND "")
