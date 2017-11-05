@@ -31,11 +31,13 @@ namespace EventProcessing
         void RegisterOnKeyDownCallback(std::function<void(KeyCode)> callback);
         void RegisterOnKeyUpCallback(std::function<void(KeyCode)> callback);
         void RegisterKeyPressedCallback(std::function<void(KeyCode, uint32_t)> callback);
+        void RegisterOnMouseMoveCallback(std::function<void(int32_t, int32_t)> callback);
 
         void DispatchOnFrameCallback(uint32_t deltaTime);
         void DispatchOnKeyDownCallback(KeyCode keyCode);
         void DispatchOnKeyUpCallback(KeyCode keyCode);
-        void DispatchKeyPressedCallBack(KeyCode keyCode, uint32_t deltaTime);
+        void DispatchKeyPressedCallback(KeyCode keyCode, uint32_t deltaTime);
+        void DispatchOnMouseMoveCallback(int32_t deltaX, int32_t deltaY);
 
         bool IsKeyPressed(KeyCode keyCode);
 
@@ -47,5 +49,6 @@ namespace EventProcessing
         std::vector<std::function<void(KeyCode)>> m_OnKeyUpCallbacks;
         std::vector<std::function<void(KeyCode, uint32_t)>> m_KeyPressedCallbacks;
         std::vector<KeyCode> m_PressedKeys;
+        std::vector<std::function<void(int32_t, int32_t)>> m_OnMouseMoveCallbacks;
     };
 }

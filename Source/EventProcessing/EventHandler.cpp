@@ -30,6 +30,10 @@ void EventProcessing::EventHandler::HandleEvents()
                 DispatchOnKeyUpCallback((KeyCode) events.key.keysym.sym);
                 break;
 
+            case SDL_MOUSEMOTION:
+                DispatchOnMouseMoveCallback(events.motion.xrel, events.motion.yrel);
+                break;
+
             case SDL_QUIT:
                 EventProcessing::Context::GetInstance()->RequestQuit();
                 break;
@@ -58,7 +62,7 @@ void EventProcessing::EventHandler::HandleFrame()
 
     for (auto& keyCode : m_PressedKeys)
     {
-        DispatchKeyPressedCallBack(keyCode, deltaTime);
+        DispatchKeyPressedCallback(keyCode, deltaTime);
     }
 
     DispatchOnFrameCallback(deltaTime);
@@ -82,6 +86,11 @@ void EventProcessing::EventHandler::RegisterOnKeyUpCallback(std::function<void(K
 void EventProcessing::EventHandler::RegisterKeyPressedCallback(std::function<void(KeyCode, uint32_t)> callback)
 {
     m_KeyPressedCallbacks.push_back(callback);
+}
+
+void EventProcessing::EventHandler::RegisterOnMouseMoveCallback(std::function<void(int32_t, int32_t)> callback)
+{
+    m_OnMouseMoveCallbacks.push_back(callback);
 }
 
 void EventProcessing::EventHandler::DispatchOnFrameCallback(uint32_t deltaTime)
@@ -113,11 +122,19 @@ void EventProcessing::EventHandler::DispatchOnKeyUpCallback(KeyCode keyCode)
     }
 }
 
-void EventProcessing::EventHandler::DispatchKeyPressedCallBack(KeyCode keyCode, uint32_t deltaTime)
+void EventProcessing::EventHandler::DispatchKeyPressedCallback(KeyCode keyCode, uint32_t deltaTime)
 {
     for (auto& callback : m_KeyPressedCallbacks)
     {
         callback(keyCode, deltaTime);
+    }
+}
+
+void EventProcessing::EventHandler::DispatchOnMouseMoveCallback(int32_t deltaX, int32_t deltaY)
+{
+    for (auto& callback : m_OnMouseMoveCallbacks)
+    {
+        callback(deltaX, deltaY);
     }
 }
 
