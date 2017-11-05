@@ -29,6 +29,7 @@ include_directories(${source_dir}/glm)
 # Define header files
 set(LABYRINTH_HEADER_FILES
         Include/EventProcessing/EventProcessing.hpp
+        Include/EventProcessing/EventHandler.hpp
         Include/RenderingEngine/Mesh/Mesh.hpp
         Include/RenderingEngine/Mesh/ObjLoader.hpp
         Include/RenderingEngine/Mesh/Vertex.hpp
@@ -55,6 +56,7 @@ set(LABYRINTH_HEADER_FILES
 # Define source files
 set(LABYRINTH_SOURCE_FILES
         Source/EventProcessing/EventProcessing.cpp
+        Source/EventProcessing/EventHandler.cpp
         Source/RenderingEngine/Mesh/Mesh.cpp
         Source/RenderingEngine/Mesh/ObjLoader.cpp
         Source/RenderingEngine/Mesh/TerrainGenerator.cpp

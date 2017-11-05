@@ -2,6 +2,7 @@
 #include <RenderingEngine/Window.hpp>
 #include <Infrastructure/Exception.hpp>
 #include <RenderingEngine/OpenGL/OpenGL.hpp>
+#include <EventProcessing/EventHandler.hpp>
 
 int main(int argc, char* argv[])
 {
@@ -10,7 +11,7 @@ int main(int argc, char* argv[])
 
     try
     {
-        EventProcessing::GetInstance()->Init();
+        EventProcessing::Context::GetInstance()->Init();
         RenderingEngine::Window::GetInstance()->Init();
         RenderingEngine::OpenGL::Context::GetInstance()->Init();
     }
@@ -25,9 +26,7 @@ int main(int argc, char* argv[])
         for (;;)
         {
             RenderingEngine::Window::GetInstance()->Clear();
-
-            EventProcessing::GetInstance()->Process();
-            EventProcessing::GetInstance()->Update();
+            EventProcessing::EventHandler::GetInstance()->HandleEvents();
 
             /**
              * TODO: Render the scene here.
@@ -35,7 +34,7 @@ int main(int argc, char* argv[])
 
             RenderingEngine::Window::GetInstance()->SwapBuffers();
 
-            if (EventProcessing::GetInstance()->IsQuitRequested()) break;
+            if (EventProcessing::Context::GetInstance()->IsQuitRequested()) break;
         }
     }
     catch (const Exception& e)
@@ -46,6 +45,6 @@ int main(int argc, char* argv[])
 
     RenderingEngine::OpenGL::Context::GetInstance()->Quit();
     RenderingEngine::Window::GetInstance()->Quit();
-    EventProcessing::GetInstance()->Quit();
+    EventProcessing::Context::GetInstance()->Quit();
     return EXIT_SUCCESS;
 }

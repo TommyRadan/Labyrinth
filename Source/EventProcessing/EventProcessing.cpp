@@ -2,23 +2,23 @@
 #include <SDL2/SDL.h>
 #include <Infrastructure/Exception.hpp>
 
-EventProcessing::EventProcessing() :
-    m_IsUserQuit { false }
+EventProcessing::Context::Context() :
+    m_IsQuitRequested { false }
 {}
 
-EventProcessing* EventProcessing::GetInstance()
+EventProcessing::Context* EventProcessing::Context::GetInstance()
 {
-    static EventProcessing* instance { nullptr };
+    static Context* instance { nullptr };
 
     if (instance == nullptr)
     {
-        instance = new EventProcessing();
+        instance = new Context();
     }
 
     return instance;
 }
 
-void EventProcessing::Init()
+void EventProcessing::Context::Init()
 {
 	if (m_IsInitialized)
 	{
@@ -33,7 +33,7 @@ void EventProcessing::Init()
     m_IsInitialized = true;
 }
 
-void EventProcessing::Quit()
+void EventProcessing::Context::Quit()
 {
 	if (!m_IsInitialized)
     {
@@ -45,47 +45,12 @@ void EventProcessing::Quit()
     m_IsInitialized = false;
 }
 
-void EventProcessing::Process()
+void EventProcessing::Context::RequestQuit()
 {
-    SDL_Event events = { 0 };
-    while (SDL_PollEvent(&events))
-    {
-        switch (events.type)
-        {
-            /**
-             * TODO: Handle event handlers here.
-             */
-
-            case SDL_QUIT:
-                m_IsUserQuit = true;
-                break;
-
-            default:
-                break;
-        }
-    }
+    m_IsQuitRequested = true;
 }
 
-void EventProcessing::Update()
+const bool EventProcessing::Context::IsQuitRequested() const
 {
-    const uint32_t ticks = SDL_GetTicks();
-
-    static uint32_t lastTickCount = ticks;
-    uint32_t deltaTime = ticks - lastTickCount;
-    lastTickCount = ticks;
-
-    // First Update will be 0, so we ignore it
-    if (deltaTime == 0u)
-    {
-        return;
-    }
-
-    /**
-     * TODO: Call OnUpdate handlers.
-     */
-}
-
-const bool EventProcessing::IsQuitRequested() const
-{
-    return m_IsUserQuit;
+    return m_IsQuitRequested;
 }

@@ -2,21 +2,22 @@
 
 #include <Infrastructure/Component.hpp>
 
-class EventProcessing : public Component
+namespace EventProcessing
 {
-    EventProcessing();
+	class Context : public Component
+	{
+		Context();
 
-public:
-    static EventProcessing* GetInstance();
+	public:
+		static Context* GetInstance();
 
-	void Init() final;
-	void Quit() final;
+		void Init() final;
+		void Quit() final;
 
-	void Process();
-	void Update();
+		void RequestQuit();
+		const bool IsQuitRequested() const;
 
-    const bool IsQuitRequested() const;
-
-private:
-	bool m_IsUserQuit;
-};
+	private:
+		bool m_IsQuitRequested;
+	};
+}
