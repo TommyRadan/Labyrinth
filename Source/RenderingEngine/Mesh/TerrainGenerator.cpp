@@ -6,9 +6,9 @@ namespace RenderingEngine
     {
         std::vector<Vertex> terrain;
 
-        for (int i = -200; i < 200; i++)
+        for (int i = -200; i < 200; i+=10)
         {
-            for (int j = -200; j < 200; j++)
+            for (int j = -200; j < 200; j+=10)
             {
                 Vertex v1;
                 v1.Pos.x = i;
