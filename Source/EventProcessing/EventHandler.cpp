@@ -56,6 +56,11 @@ void EventProcessing::EventHandler::HandleFrame()
         return;
     }
 
+    for (auto& keyCode : m_PressedKeys)
+    {
+        DispatchKeyPressedCallBack(keyCode, deltaTime);
+    }
+
     DispatchOnFrameCallback(deltaTime);
 }
 
@@ -74,6 +79,11 @@ void EventProcessing::EventHandler::RegisterOnKeyUpCallback(std::function<void(K
     m_OnKeyUpCallbacks.push_back(callback);
 }
 
+void EventProcessing::EventHandler::RegisterKeyPressedCallback(std::function<void(KeyCode, uint32_t)> callback)
+{
+    m_KeyPressedCallbacks.push_back(callback);
+}
+
 void EventProcessing::EventHandler::DispatchOnFrameCallback(uint32_t deltaTime)
 {
     for (auto& callback : m_OnFrameCallbacks)
@@ -84,6 +94,9 @@ void EventProcessing::EventHandler::DispatchOnFrameCallback(uint32_t deltaTime)
 
 void EventProcessing::EventHandler::DispatchOnKeyDownCallback(KeyCode keyCode)
 {
+    m_PressedKeys.erase(std::remove(m_PressedKeys.begin(), m_PressedKeys.end(), keyCode), m_PressedKeys.end());
+    m_PressedKeys.push_back(keyCode);
+
     for (auto& callback : m_OnKeyDownCallbacks)
     {
         callback(keyCode);
@@ -92,8 +105,25 @@ void EventProcessing::EventHandler::DispatchOnKeyDownCallback(KeyCode keyCode)
 
 void EventProcessing::EventHandler::DispatchOnKeyUpCallback(KeyCode keyCode)
 {
+    m_PressedKeys.erase(std::remove(m_PressedKeys.begin(), m_PressedKeys.end(), keyCode), m_PressedKeys.end());
+
     for (auto& callback : m_OnKeyUpCallbacks)
     {
         callback(keyCode);
     }
+}
+
+void EventProcessing::EventHandler::DispatchKeyPressedCallBack(KeyCode keyCode, uint32_t deltaTime)
+{
+    for (auto& callback : m_KeyPressedCallbacks)
+    {
+        callback(keyCode, deltaTime);
+    }
+}
+
+bool EventProcessing::EventHandler::IsKeyPressed(KeyCode keyCode)
+{
+    auto position = std::find(m_PressedKeys.begin(), m_PressedKeys.end(), keyCode);
+
+    return (position != m_PressedKeys.end());
 }
