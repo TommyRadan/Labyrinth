@@ -13,7 +13,9 @@ namespace RenderingEngine
 
         void SetPosition(const glm::vec3& pos);
         void SetRotation(const glm::vec3& rotation);
-        void SetLookAt(const glm::vec3& lookAt);
+
+        glm::vec3 GetPosition();
+        glm::vec3 GetRotation();
 
         // Feedback
         glm::mat4 GetViewMatrix();
@@ -33,7 +35,6 @@ namespace RenderingEngine
         // Data
         glm::vec3 m_Position;
         glm::vec3 m_Rotation;
-        glm::vec3 m_LookAt;
         glm::mat4 m_Perspective;
     };
 }

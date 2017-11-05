@@ -6,8 +6,7 @@
 RenderingEngine::Camera::Camera()
 {
     m_Position = glm::vec3(0.0f, 0.0f, 0.0f);
-    m_LookAt = glm::vec3(1.0f, 0.0f, 0.0f);
-    m_Rotation = glm::normalize(m_LookAt - m_Position);
+    m_Rotation = glm::vec3(1.0f, 0.0f, 0.0f);
 
     const Settings* settings = Settings::GetInstance();
 
@@ -40,16 +39,18 @@ void RenderingEngine::Camera::SetPosition(const glm::vec3& pos)
 
 void RenderingEngine::Camera::SetRotation(const glm::vec3& rotation)
 {
-    m_Rotation = rotation;
-    m_LookAt = m_Position + glm::normalize(m_Rotation);
+    m_Rotation = glm::normalize(rotation);
     m_IsViewMatrixDirty = true;
 }
 
-void RenderingEngine::Camera::SetLookAt(const glm::vec3& lookAt)
+glm::vec3 RenderingEngine::Camera::GetPosition()
 {
-    m_LookAt = lookAt;
-    m_Rotation = glm::normalize(m_LookAt - m_Position);
-    m_IsViewMatrixDirty = true;
+    return m_Position;
+}
+
+glm::vec3 RenderingEngine::Camera::GetRotation()
+{
+    return m_Rotation;
 }
 
 glm::mat4 RenderingEngine::Camera::GetViewMatrix()
@@ -60,7 +61,8 @@ glm::mat4 RenderingEngine::Camera::GetViewMatrix()
     }
 
     glm::vec3 upVector(0.0f, 0.0f, 1.0f);
-    m_ViewMatrix = glm::lookAt(m_Position, m_LookAt, upVector);
+    glm::vec3 lookAt = m_Position + m_Rotation;
+    m_ViewMatrix = glm::lookAt(m_Position, lookAt, upVector);
     m_IsViewMatrixDirty = false;
     return m_ViewMatrix;
 }
