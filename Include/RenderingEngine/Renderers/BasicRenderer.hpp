@@ -2,9 +2,13 @@
 
 namespace RenderingEngine::Renderers
 {
-    struct BasicRenderer : public Renderer
+    class BasicRenderer : public Renderer
     {
         BasicRenderer();
+
+    public:
+        static BasicRenderer* GetInstance();
+
         ~BasicRenderer();
 
         void SetupCamera() final;

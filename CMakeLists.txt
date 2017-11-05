@@ -47,6 +47,8 @@ set(LABYRINTH_HEADER_FILES
         Include/RenderingEngine/Renderers/BasicRenderer.hpp
         Include/RenderingEngine/Window.hpp
         Include/RenderingEngine/Camera.hpp
+        Include/RenderingEngine/Model.hpp
+        Include/RenderingEngine/Renderable.hpp
         Include/RenderingEngine/RenderOptions.hpp
         Include/RenderingEngine/Renderer.hpp
         Include/Infrastructure/Component.hpp
@@ -72,6 +74,8 @@ set(LABYRINTH_SOURCE_FILES
         Source/RenderingEngine/Renderers/BasicRenderer.cpp
         Source/RenderingEngine/Window.cpp
         Source/RenderingEngine/Camera.cpp
+        Source/RenderingEngine/Model.cpp
+        Source/RenderingEngine/Renderable.cpp
         Source/RenderingEngine/Renderer.cpp
         Source/Infrastructure/Component.cpp
         Source/Infrastructure/Exception.cpp
