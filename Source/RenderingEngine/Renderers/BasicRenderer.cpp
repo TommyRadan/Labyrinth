@@ -6,11 +6,12 @@ static std::string vertexShader = "" \
         "\n" \
         "layout(location=0) in vec3 position;\n" \
         "\n" \
+        "uniform mat4 modelMatrix;\n" \
         "uniform mat4 viewMatrix;\n" \
         "uniform mat4 projectionMatrix;\n" \
         "void main() { \n" \
-        "mat4 VP = projectionMatrix * viewMatrix;\n" \
-        "gl_Position = VP * vec4(position, 1.0);\n" \
+        "mat4 MVP = projectionMatrix * viewMatrix * modelMatrix;\n" \
+        "gl_Position = MVP * vec4(position, 1.0);\n" \
         "}\n";
 
 static std::string fragmentShader = "" \

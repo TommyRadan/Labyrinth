@@ -1,4 +1,5 @@
 #include <RenderingEngine/Model.hpp>
+#include <RenderingEngine/Renderer.hpp>
 
 RenderingEngine::Model::Model() :
     m_VertexCount { 0 }
@@ -19,6 +20,8 @@ void RenderingEngine::Model::UploadMesh(const RenderingEngine::Mesh& mesh)
 
 void RenderingEngine::Model::Render()
 {
+    RenderingEngine::Renderer::GetCurrentRenderer()->UploadMatrix4("modelMatrix", this->GetModelMatrix());
+
     RenderingEngine::OpenGL::Context::GetInstance()->DrawArrays(m_VertexArrayObject,
                                                                 RenderingEngine::OpenGL::Primitive::Triangles,
                                                                 0,
