@@ -50,6 +50,7 @@ set(LABYRINTH_HEADER_FILES
         Include/RenderingEngine/Renderer.hpp
         Include/Infrastructure/Component.hpp
         Include/Infrastructure/Exception.hpp
+        Include/Infrastructure/GameModule.hpp
         Include/Infrastructure/Settings.hpp
         Include/Labyrinth/Labyrinth.hpp)
 
@@ -57,6 +58,7 @@ set(LABYRINTH_HEADER_FILES
 set(LABYRINTH_SOURCE_FILES
         Source/EventProcessing/EventProcessing.cpp
         Source/EventProcessing/EventHandler.cpp
+        Source/GameModules/CameraModule.cpp
         Source/RenderingEngine/Mesh/Mesh.cpp
         Source/RenderingEngine/Mesh/ObjLoader.cpp
         Source/RenderingEngine/Mesh/TerrainGenerator.cpp
