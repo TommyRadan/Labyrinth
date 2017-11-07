@@ -5,7 +5,6 @@
 #include <Infrastructure/Settings.hpp>
 #define GLM_ENABLE_EXPERIMENTAL
 #include <gtx/vector_angle.hpp>
-#include <iostream>
 
 static void OnKeyPressed(EventProcessing::KeyCode keyCode, uint32_t deltaTime)
 {
