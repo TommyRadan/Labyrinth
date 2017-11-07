@@ -1,5 +1,6 @@
 #include <RenderingEngine/Renderer.hpp>
 #include <RenderingEngine/OpenGL/OpenGL.hpp>
+#include <RenderingEngine/Camera.hpp>
 
 RenderingEngine::Renderer* RenderingEngine::Renderer::m_CurrentRenderer = nullptr;
 
@@ -13,6 +14,12 @@ void RenderingEngine::Renderer::StopRenderer()
 {
     m_CurrentRenderer = nullptr;
     static_cast<OpenGL::Program*>(m_Program)->Stop();
+}
+
+void RenderingEngine::Renderer::SetupCamera()
+{
+    this->UploadMatrix4("viewMatrix", RenderingEngine::Camera::GetInstance()->GetViewMatrix());
+    this->UploadMatrix4("projectionMatrix", RenderingEngine::Camera::GetInstance()->GetProjectionMatrix());
 }
 
 void RenderingEngine::Renderer::SetupOptions(const RenderOptions& options)

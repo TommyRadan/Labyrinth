@@ -49,9 +49,3 @@ RenderingEngine::Renderers::BasicRenderer::~BasicRenderer()
 {
     DestructProgram();
 }
-
-void RenderingEngine::Renderers::BasicRenderer::SetupCamera()
-{
-    this->UploadMatrix4("viewMatrix", RenderingEngine::Camera::GetInstance()->GetViewMatrix());
-    this->UploadMatrix4("projectionMatrix", RenderingEngine::Camera::GetInstance()->GetProjectionMatrix());
-}

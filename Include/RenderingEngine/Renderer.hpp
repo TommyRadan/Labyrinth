@@ -13,7 +13,7 @@ namespace RenderingEngine
         void StartRenderer();
         void StopRenderer();
 
-        virtual void SetupCamera() = 0;
+        void SetupCamera();
         void SetupOptions(const RenderOptions& options);
 
         void UploadTextureReference(const std::string& textureName, int position);

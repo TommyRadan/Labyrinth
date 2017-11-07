@@ -10,7 +10,5 @@ namespace RenderingEngine::Renderers
         static BasicRenderer* GetInstance();
 
         ~BasicRenderer();
-
-        void SetupCamera() final;
     };
 }
