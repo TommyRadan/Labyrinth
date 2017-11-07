@@ -1,5 +1,7 @@
 #pragma once
 
+#include <cstdint>
+
 namespace RenderingEngine::OpenGL
 {
 	struct Color
