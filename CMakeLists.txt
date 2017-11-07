@@ -31,6 +31,8 @@ include_directories(${source_dir}/glm)
 set(LABYRINTH_HEADER_FILES
         Include/EventProcessing/EventProcessing.hpp
         Include/EventProcessing/EventHandler.hpp
+        Include/RenderingEngine/Image/Image.hpp
+        Include/RenderingEngine/Image/StbImageLoader.hpp
         Include/RenderingEngine/Mesh/Mesh.hpp
         Include/RenderingEngine/Mesh/ObjLoader.hpp
         Include/RenderingEngine/Mesh/Vertex.hpp
@@ -61,6 +63,8 @@ set(LABYRINTH_HEADER_FILES
 set(LABYRINTH_SOURCE_FILES
         Source/EventProcessing/EventProcessing.cpp
         Source/EventProcessing/EventHandler.cpp
+        Source/RenderingEngine/Image/Image.cpp
+        Source/RenderingEngine/Image/StbImageLoader.cpp
         Source/RenderingEngine/Mesh/Mesh.cpp
         Source/RenderingEngine/Mesh/ObjLoader.cpp
         Source/RenderingEngine/Mesh/TerrainGenerator.cpp
