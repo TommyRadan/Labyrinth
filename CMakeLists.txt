@@ -47,6 +47,7 @@ set(LABYRINTH_HEADER_FILES
         Include/RenderingEngine/OpenGL/VertexArray.hpp
         Include/RenderingEngine/OpenGL/VertexBuffer.hpp
         Include/RenderingEngine/Renderers/BasicRenderer.hpp
+        Include/RenderingEngine/Renderers/TerrainRenderer.hpp
         Include/RenderingEngine/Window.hpp
         Include/RenderingEngine/Camera.hpp
         Include/RenderingEngine/Model.hpp
@@ -76,6 +77,7 @@ set(LABYRINTH_SOURCE_FILES
         Source/RenderingEngine/OpenGL/VertexArray.cpp
         Source/RenderingEngine/OpenGL/VertexBuffer.cpp
         Source/RenderingEngine/Renderers/BasicRenderer.cpp
+        Source/RenderingEngine/Renderers/TerrainRenderer.cpp
         Source/RenderingEngine/Window.cpp
         Source/RenderingEngine/Camera.cpp
         Source/RenderingEngine/Model.cpp
