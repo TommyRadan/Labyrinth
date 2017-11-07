@@ -1,3 +1,5 @@
+#pragma once
+
 #include <RenderingEngine/Renderer.hpp>
 
 namespace RenderingEngine::Renderers
