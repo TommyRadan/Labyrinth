@@ -1,23 +1,32 @@
 #include <RenderingEngine/Renderers/BasicRenderer.hpp>
 #include <RenderingEngine/Camera.hpp>
 
-static std::string vertexShader = "" \
-        "#version 330\n" \
-        "\n" \
-        "layout(location=0) in vec3 position;\n" \
-        "\n" \
-        "uniform mat4 modelMatrix;\n" \
-        "uniform mat4 viewMatrix;\n" \
-        "uniform mat4 projectionMatrix;\n" \
-        "void main() { \n" \
-        "mat4 MVP = projectionMatrix * viewMatrix * modelMatrix;\n" \
-        "gl_Position = MVP * vec4(position, 1.0);\n" \
-        "}\n";
+static std::string vertexShader = R"vs(
+        #version 330
 
-static std::string fragmentShader = "" \
-        "#version 330\n" \
-        "out vec4 fragColor;\n" \
-        "void main() { fragColor = vec4(1.0, 1.0, 1.0, 1.0); }\n";
+        layout(location=0) in vec3 position;
+
+        uniform mat4 modelMatrix;
+        uniform mat4 viewMatrix;
+        uniform mat4 projectionMatrix;
+
+        void main()
+        {
+            mat4 MVP = projectionMatrix * viewMatrix * modelMatrix;
+            gl_Position = MVP * vec4(position, 1.0);
+        }
+)vs";
+
+static std::string fragmentShader = R"fs(
+        #version 330
+
+        out vec4 fragColor;
+
+        void main()
+        {
+            fragColor = vec4(1.0, 1.0, 1.0, 1.0);
+        }
+)fs";
 
 RenderingEngine::Renderers::BasicRenderer::BasicRenderer()
 {
