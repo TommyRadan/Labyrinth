@@ -2,8 +2,9 @@
 
 namespace RenderingEngine
 {
-    std::vector<Vertex> GenerateTerrain()
+    Mesh GenerateTerrain()
     {
+        Mesh mesh;
         std::vector<Vertex> terrain;
 
         Vertex v1;
@@ -34,6 +35,7 @@ namespace RenderingEngine
         terrain.push_back(v2);
         terrain.push_back(v3);
 
-        return terrain;
+        mesh.UploadOBJ(terrain);
+        return mesh;
     }
 }
