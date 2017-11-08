@@ -54,6 +54,7 @@ set(LABYRINTH_HEADER_FILES
         Include/RenderingEngine/Renderable.hpp
         Include/RenderingEngine/RenderOptions.hpp
         Include/RenderingEngine/Renderer.hpp
+        Include/RenderingEngine/RenderingEngine.hpp
         Include/Infrastructure/Component.hpp
         Include/Infrastructure/Exception.hpp
         Include/Infrastructure/GameModule.hpp
@@ -83,6 +84,7 @@ set(LABYRINTH_SOURCE_FILES
         Source/RenderingEngine/Model.cpp
         Source/RenderingEngine/Renderable.cpp
         Source/RenderingEngine/Renderer.cpp
+        Source/RenderingEngine/RenderingEngine.cpp
         Source/Infrastructure/Component.cpp
         Source/Infrastructure/Exception.cpp
         Source/Infrastructure/Settings.cpp
