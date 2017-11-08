@@ -1,6 +1,7 @@
 #pragma once
 
 #include <RenderingEngine/OpenGL/Color.hpp>
+#include <RenderingEngine/OpenGL/Texture.hpp>
 #include <string>
 
 namespace RenderingEngine
@@ -19,6 +20,8 @@ namespace RenderingEngine
 
         Image& operator=(const Image& image);
         Image& operator=(Image&& image) noexcept;
+
+        OpenGL::Texture ConstructTexture() const;
 
         const uint32_t GetWidth() const;
         const uint32_t GetHeight() const;

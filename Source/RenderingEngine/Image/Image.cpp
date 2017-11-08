@@ -84,6 +84,26 @@ RenderingEngine::Image& RenderingEngine::Image::operator=(Image&& image) noexcep
     return *this;
 }
 
+RenderingEngine::OpenGL::Texture RenderingEngine::Image::ConstructTexture() const
+{
+    RenderingEngine::OpenGL::Texture texture;
+    texture.Image2D(GetPixels(),
+                    RenderingEngine::OpenGL::DataType::UnsignedByte,
+                    RenderingEngine::OpenGL::Format::RGBA,
+                    GetWidth(),
+                    GetHeight(),
+                    RenderingEngine::OpenGL::InternalFormat::RGBA);
+
+    texture.SetWrappingR(RenderingEngine::OpenGL::Wrapping::Repeat);
+    texture.SetWrappingS(RenderingEngine::OpenGL::Wrapping::Repeat);
+    texture.SetWrappingT(RenderingEngine::OpenGL::Wrapping::Repeat);
+    texture.SetFilters(RenderingEngine::OpenGL::Filter::NearestMipmapLinear,
+                       RenderingEngine::OpenGL::Filter::NearestMipmapLinear);
+    texture.GenerateMipmaps();
+
+    return texture;
+}
+
 const unsigned int RenderingEngine::Image::GetWidth() const
 {
     return m_Width;
