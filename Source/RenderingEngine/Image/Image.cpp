@@ -97,7 +97,7 @@ RenderingEngine::OpenGL::Texture RenderingEngine::Image::ConstructTexture() cons
     texture.SetWrappingR(RenderingEngine::OpenGL::Wrapping::Repeat);
     texture.SetWrappingS(RenderingEngine::OpenGL::Wrapping::Repeat);
     texture.SetWrappingT(RenderingEngine::OpenGL::Wrapping::Repeat);
-    texture.SetFilters(RenderingEngine::OpenGL::Filter::NearestMipmapLinear,
+    texture.SetFilters(RenderingEngine::OpenGL::Filter::LinearMipmapNearest,
                        RenderingEngine::OpenGL::Filter::NearestMipmapLinear);
     texture.GenerateMipmaps();
 
