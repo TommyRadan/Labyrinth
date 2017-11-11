@@ -30,6 +30,46 @@ void EventProcessing::EventHandler::HandleEvents()
                 DispatchOnKeyUpCallback((KeyCode) events.key.keysym.sym);
                 break;
 
+            case SDL_MOUSEBUTTONDOWN:
+                switch(events.button.button)
+                {
+                    case SDL_BUTTON_LEFT:
+                        DispatchOnKeyDownCallback(KeyCode::MOUSE_LEFT);
+                        break;
+
+                    case SDL_BUTTON_RIGHT:
+                        DispatchOnKeyDownCallback(KeyCode::MOUSE_RIGHT);
+                        break;
+
+                    case SDL_BUTTON_MIDDLE:
+                        DispatchOnKeyDownCallback(KeyCode::MOUSE_MIDDLE);
+                        break;
+
+                    default:
+                        break;
+                }
+                break;
+
+            case SDL_MOUSEBUTTONUP:
+                switch(events.button.button)
+                {
+                    case SDL_BUTTON_LEFT:
+                        DispatchOnKeyUpCallback(KeyCode::MOUSE_LEFT);
+                        break;
+
+                    case SDL_BUTTON_RIGHT:
+                        DispatchOnKeyUpCallback(KeyCode::MOUSE_RIGHT);
+                        break;
+
+                    case SDL_BUTTON_MIDDLE:
+                        DispatchOnKeyUpCallback(KeyCode::MOUSE_MIDDLE);
+                        break;
+
+                    default:
+                        break;
+                }
+                break;
+
             case SDL_MOUSEMOTION:
                 DispatchOnMouseMoveCallback(events.motion.xrel, events.motion.yrel);
                 break;

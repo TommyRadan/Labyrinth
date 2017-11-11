@@ -15,7 +15,11 @@ namespace EventProcessing
         SHIFT = 1073742049,
         CTRL = 1073741881,
         ENTER = 13,
-        ESCAPE = 27
+        ESCAPE = 27,
+
+        MOUSE_LEFT = 141881,
+        MOUSE_RIGHT = 141882,
+        MOUSE_MIDDLE = 141883
     };
 
     class EventHandler
