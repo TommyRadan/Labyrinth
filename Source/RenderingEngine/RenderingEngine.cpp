@@ -17,6 +17,7 @@ void RenderingEngine::Context::Init()
     RenderingEngine::Window::GetInstance()->Init();
     RenderingEngine::OpenGL::Context::GetInstance()->Init();
 
+    RenderingEngine::OpenGL::Context::GetInstance()->Enable(RenderingEngine::OpenGL::Capability::CullFace);
     RenderingEngine::OpenGL::Context::GetInstance()->Enable(RenderingEngine::OpenGL::Capability::DepthTest);
 }
 
