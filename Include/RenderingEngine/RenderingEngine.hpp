@@ -3,7 +3,8 @@
 #include <RenderingEngine/Window.hpp>
 #include <RenderingEngine/Renderer.hpp>
 #include <RenderingEngine/Renderable.hpp>
-#include <RenderingEngine/Model.hpp>
+#include <RenderingEngine/Renderables/Model.hpp>
+#include <RenderingEngine/Renderables/Terrain.hpp>
 #include <RenderingEngine/Camera.hpp>
 #include <RenderingEngine/Image/Image.hpp>
 #include <RenderingEngine/Image/StbImageLoader.hpp>

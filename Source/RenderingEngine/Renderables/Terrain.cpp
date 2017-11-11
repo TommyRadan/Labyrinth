@@ -1,12 +1,11 @@
-#include <RenderingEngine/Model.hpp>
+#include <RenderingEngine/Renderables/Terrain.hpp>
 #include <RenderingEngine/Renderer.hpp>
+#include <RenderingEngine/Mesh/TerrainGenerator.hpp>
 
-RenderingEngine::Model::Model() :
-    m_VertexCount { 0 }
-{}
-
-void RenderingEngine::Model::UploadMesh(const RenderingEngine::Mesh& mesh)
+RenderingEngine::Terrain::Terrain()
 {
+    RenderingEngine::Mesh mesh = RenderingEngine::GenerateTerrain();
+
     m_VertexCount = mesh.VertexCount();
 
     m_VertexBufferObject.Data(mesh.Vertices(),
@@ -20,16 +19,10 @@ void RenderingEngine::Model::UploadMesh(const RenderingEngine::Mesh& mesh)
     m_VertexArrayObject.BindAttribute(1, m_VertexBufferObject,
                                       RenderingEngine::OpenGL::Type::Float,
                                       2, sizeof(RenderingEngine::Vertex), sizeof(glm::vec3));
-
-    m_VertexArrayObject.BindAttribute(2, m_VertexBufferObject,
-                                      RenderingEngine::OpenGL::Type::Float,
-                                      3, sizeof(RenderingEngine::Vertex), sizeof(glm::vec3) + sizeof(glm::vec2));
 }
 
-void RenderingEngine::Model::Render()
+void RenderingEngine::Terrain::Render()
 {
-    RenderingEngine::Renderer::GetCurrentRenderer()->UploadMatrix4("modelMatrix", this->GetModelMatrix());
-
     RenderingEngine::OpenGL::Context::GetInstance()->DrawArrays(m_VertexArrayObject,
                                                                 RenderingEngine::OpenGL::Primitive::Triangles,
                                                                 0, m_VertexCount);
