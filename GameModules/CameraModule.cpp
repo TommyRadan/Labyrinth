@@ -53,6 +53,11 @@ static void OnKeyPressed(EventProcessing::KeyCode keyCode, uint32_t deltaTime)
 
 static void OnMouseMove(int32_t deltaX, int32_t deltaY)
 {
+    if (!EventProcessing::EventHandler::GetInstance()->IsKeyPressed(EventProcessing::KeyCode::MOUSE_LEFT))
+    {
+        return;
+    }
+
     glm::vec3 rotation = RenderingEngine::Camera::GetInstance()->GetRotation();
     glm::vec3 rotationAxis {0.0f, 0.0f, 1.0f};
     glm::vec3 upVector {0.0f, 0.0f, 1.0f};
@@ -61,7 +66,7 @@ static void OnMouseMove(int32_t deltaX, int32_t deltaY)
     float sensitivity = Settings::GetInstance()->GetMouseSensitivity();
     int pitchMultiplier = Settings::GetInstance()->IsMouseReversed() ? -1 : 1;
 
-    rotation = glm::vec4(rotation, 0.0f) * glm::rotate(sensitivity * deltaX, rotationAxis);
+    rotation = glm::vec4(rotation, 0.0f) * glm::rotate(-sensitivity * deltaX, rotationAxis);
     rotation = glm::vec4(rotation, 0.0f) * glm::rotate(pitchMultiplier * sensitivity * deltaY, pitchAxis);
 
     RenderingEngine::Camera::GetInstance()->SetRotation(rotation);
