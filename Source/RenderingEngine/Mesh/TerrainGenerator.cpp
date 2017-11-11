@@ -35,13 +35,13 @@ namespace RenderingEngine
         v4.Tex.x = 200;
         v4.Tex.y = 200;
 
-        terrain.push_back(v2);
         terrain.push_back(v1);
+        terrain.push_back(v2);
         terrain.push_back(v3);
 
         terrain.push_back(v4);
-        terrain.push_back(v2);
         terrain.push_back(v3);
+        terrain.push_back(v2);
 
         mesh.UploadOBJ(terrain);
         return mesh;
