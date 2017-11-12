@@ -4,7 +4,7 @@
 #include <RenderingEngine/Camera.hpp>
 #include <Infrastructure/Settings.hpp>
 #define GLM_ENABLE_EXPERIMENTAL
-#include <gtx/vector_angle.hpp>
+#include <Mathematics/gtx/vector_angle.hpp>
 
 static void OnKeyPressed(EventProcessing::KeyCode keyCode, uint32_t deltaTime)
 {
