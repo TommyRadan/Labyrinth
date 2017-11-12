@@ -1,6 +1,7 @@
 #include <EventProcessing/EventHandler.hpp>
 #include <EventProcessing/EventProcessing.hpp>
-#include <SDL.h>
+#include <SDL2/SDL.h>
+#include <algorithm>
 
 EventProcessing::EventHandler* EventProcessing::EventHandler::GetInstance()
 {

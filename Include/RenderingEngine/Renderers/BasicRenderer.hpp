@@ -2,15 +2,18 @@
 
 #include <RenderingEngine/Renderer.hpp>
 
-namespace RenderingEngine::Renderers
+namespace RenderingEngine
 {
-    class BasicRenderer : public Renderer
-    {
-        BasicRenderer();
+	namespace Renderers
+	{
+		class BasicRenderer : public Renderer
+		{
+			BasicRenderer();
 
-    public:
-        static BasicRenderer* GetInstance();
+		public:
+			static BasicRenderer* GetInstance();
 
-        ~BasicRenderer();
-    };
+			~BasicRenderer();
+		};
+	}
 }

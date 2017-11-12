@@ -1,6 +1,7 @@
 #include <RenderingEngine/Image/Image.hpp>
 
 #include <Infrastructure/Exception.hpp>
+#define STB_IMAGE_IMPLEMENTATION
 #include <RenderingEngine/Image/StbImageLoader.hpp>
 
 RenderingEngine::Image::Image() :
