@@ -13,6 +13,7 @@ find_package(GLEW REQUIRED)
 include_directories(Include/)
 include_directories(${SDL2_INCLUDE_DIR})
 include_directories(${GLEW_INCLUDE_DIR})
+include_directories(ThirdParty/GLM/)
 
 # Define header files
 set(LABYRINTH_HEADER_FILES
@@ -92,8 +93,6 @@ add_executable(Labyrinth
         ${LABYRINTH_SOURCE_FILES}
         ${LABYRINTH_GAME_MODULES}
         Source/Control/MainLoop.cpp)
-
-# Add dependencies
 
 # Link internal and external libraries
 target_link_libraries(Labyrinth ${SDL2_LIBRARY})
