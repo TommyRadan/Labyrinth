@@ -1,6 +1,6 @@
 #pragma once
 
-#include <glm.hpp>
+#include <Mathematics/glm.hpp>
 #include <string>
 
 #include <RenderingEngine/RenderOptions.hpp>

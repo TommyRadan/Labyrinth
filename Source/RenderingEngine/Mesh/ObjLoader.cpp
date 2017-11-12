@@ -1,7 +1,7 @@
 #include <RenderingEngine/Mesh/ObjLoader.hpp>
 
 #include <Infrastructure/Exception.hpp>
-#include <glm.hpp>
+#include <Mathematics/glm.hpp>
 
 #include <fstream>
 

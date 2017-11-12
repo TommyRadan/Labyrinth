@@ -1,6 +1,6 @@
 #include <RenderingEngine/Renderable.hpp>
 #define GLM_ENABLE_EXPERIMENTAL
-#include <gtx/transform.hpp>
+#include <Mathematics/gtx/transform.hpp>
 
 RenderingEngine::Renderable::Renderable() :
     m_IsModelMatrixDirty { true },

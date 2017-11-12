@@ -8,4 +8,3 @@ const bool Component::IsInitialized() const
 {
     return m_IsInitialized;
 }
-
