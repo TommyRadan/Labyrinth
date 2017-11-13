@@ -5,21 +5,24 @@
 #include <exception>
 #include <string>
 
-namespace RenderingEngine::OpenGL
+namespace RenderingEngine
 {
-	struct Shader
+	namespace OpenGL
 	{
-		explicit Shader(ShaderType type);
-		~Shader();
-		
-		const GLuint Handle() const;
-		
-		void Source(const std::string& code);
-		void Compile();
+		struct Shader
+		{
+			explicit Shader(ShaderType type);
+			~Shader();
 
-		std::string GetInfoLog();
+			const GLuint Handle() const;
 
-	private:
-		GLuint m_ObjectID;
-	};
+			void Source(const std::string& code);
+			void Compile();
+
+			std::string GetInfoLog();
+
+		private:
+			GLuint m_ObjectID;
+		};
+	}
 }

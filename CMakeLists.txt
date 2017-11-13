@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.2)
 project(Labyrinth)
 
-set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD 11)
 
 # Find external dependencies
 if (WIN32)
@@ -99,11 +99,6 @@ add_executable(Labyrinth
         ${LABYRINTH_SOURCE_FILES}
         ${LABYRINTH_GAME_MODULES}
         Source/Control/MainLoop.cpp)
-
-# C++17 for VisualStudio
-if (WIN32)
-	target_compile_options(Labyrinth PRIVATE /std:c++latest)
-endif ()
 
 # Link internal and external libraries
 target_link_libraries(Labyrinth ${SDL2_LIBRARY})

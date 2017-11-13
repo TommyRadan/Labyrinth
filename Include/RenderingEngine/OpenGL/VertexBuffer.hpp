@@ -4,21 +4,24 @@
 
 #include <RenderingEngine/OpenGL/Typedef.hpp>
 
-namespace RenderingEngine::OpenGL
+namespace RenderingEngine
 {
-	struct VertexBuffer
+	namespace OpenGL
 	{
-		VertexBuffer();
-		~VertexBuffer();
+		struct VertexBuffer
+		{
+			VertexBuffer();
+			~VertexBuffer();
 
-		const unsigned int Handle() const;
+			const unsigned int Handle() const;
 
-		void Data(const void* data, size_t length, BufferUsage usage);
-		void SubData(const void* data, size_t offset, size_t length);
+			void Data(const void* data, size_t length, BufferUsage usage);
+			void SubData(const void* data, size_t offset, size_t length);
 
-		void GetSubData(void* data, size_t offset, size_t length);
+			void GetSubData(void* data, size_t offset, size_t length);
 
-	private:
-		unsigned int m_ObjectID;
-	};
+		private:
+			unsigned int m_ObjectID;
+		};
+	}
 }
