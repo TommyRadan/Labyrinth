@@ -2,15 +2,18 @@
 
 #include <RenderingEngine/Renderers/Renderer.hpp>
 
-namespace RenderingEngine::Renderers
+namespace RenderingEngine
 {
-    class SkyRenderer : public Renderer
+    namespace Renderers
     {
-        SkyRenderer();
+        class SkyRenderer : public Renderer
+        {
+            SkyRenderer();
 
-    public:
-        static SkyRenderer* GetInstance();
+        public:
+            static SkyRenderer* GetInstance();
 
-        ~SkyRenderer();
-    };
+            ~SkyRenderer();
+        };
+    }
 }

@@ -2,15 +2,18 @@
 
 #include <RenderingEngine/Renderers/Renderer.hpp>
 
-namespace RenderingEngine::Renderers
+namespace RenderingEngine
 {
-    class TerrainRenderer : public Renderer
+    namespace Renderers
     {
-        TerrainRenderer();
+        class TerrainRenderer : public Renderer
+        {
+            TerrainRenderer();
 
-    public:
-        static TerrainRenderer* GetInstance();
+        public:
+            static TerrainRenderer* GetInstance();
 
-        ~TerrainRenderer();
-    };
+            ~TerrainRenderer();
+        };
+    }
 }
