@@ -14,18 +14,19 @@ include_directories(Include/)
 include_directories(${SDL2_INCLUDE_DIR})
 include_directories(${GLEW_INCLUDE_DIR})
 include_directories(ThirdParty/GLM/)
+include_directories(ThirdParty/STBI/)
 
 # Define header files
 set(LABYRINTH_HEADER_FILES
         Include/EventProcessing/EventProcessing.hpp
         Include/EventProcessing/EventHandler.hpp
         Include/RenderingEngine/Image/Image.hpp
-        Include/RenderingEngine/Image/StbImageLoader.hpp
         Include/RenderingEngine/Mesh/Mesh.hpp
         Include/RenderingEngine/Mesh/ObjLoader.hpp
         Include/RenderingEngine/Mesh/Vertex.hpp
         Include/RenderingEngine/Mesh/TerrainGenerator.hpp
         Include/RenderingEngine/Renderables/Model.hpp
+        Include/RenderingEngine/Renderables/Renderable.hpp
         Include/RenderingEngine/Renderables/Terrain.hpp
         Include/RenderingEngine/OpenGL/Color.hpp
         Include/RenderingEngine/OpenGL/Framebuffer.hpp
@@ -37,13 +38,12 @@ set(LABYRINTH_HEADER_FILES
         Include/RenderingEngine/OpenGL/VertexArray.hpp
         Include/RenderingEngine/OpenGL/VertexBuffer.hpp
         Include/RenderingEngine/Renderers/BasicRenderer.hpp
+        Include/RenderingEngine/Renderers/Renderer.hpp
         Include/RenderingEngine/Renderers/SkyRenderer.hpp
         Include/RenderingEngine/Renderers/TerrainRenderer.hpp
         Include/RenderingEngine/Window.hpp
         Include/RenderingEngine/Camera.hpp
-        Include/RenderingEngine/Renderable.hpp
         Include/RenderingEngine/RenderOptions.hpp
-        Include/RenderingEngine/Renderer.hpp
         Include/RenderingEngine/RenderingEngine.hpp
         Include/Infrastructure/Component.hpp
         Include/Infrastructure/Exception.hpp
@@ -55,11 +55,11 @@ set(LABYRINTH_SOURCE_FILES
         Source/EventProcessing/EventProcessing.cpp
         Source/EventProcessing/EventHandler.cpp
         Source/RenderingEngine/Image/Image.cpp
-        Source/RenderingEngine/Image/StbImageLoader.cpp
         Source/RenderingEngine/Mesh/Mesh.cpp
         Source/RenderingEngine/Mesh/ObjLoader.cpp
         Source/RenderingEngine/Mesh/TerrainGenerator.cpp
         Source/RenderingEngine/Renderables/Model.cpp
+        Source/RenderingEngine/Renderables/Renderable.cpp
         Source/RenderingEngine/Renderables/Terrain.cpp
         Source/RenderingEngine/OpenGL/Framebuffer.cpp
         Source/RenderingEngine/OpenGL/OpenGL.cpp
@@ -69,12 +69,11 @@ set(LABYRINTH_SOURCE_FILES
         Source/RenderingEngine/OpenGL/VertexArray.cpp
         Source/RenderingEngine/OpenGL/VertexBuffer.cpp
         Source/RenderingEngine/Renderers/BasicRenderer.cpp
+        Source/RenderingEngine/Renderers/Renderer.cpp
         Source/RenderingEngine/Renderers/SkyRenderer.cpp
         Source/RenderingEngine/Renderers/TerrainRenderer.cpp
         Source/RenderingEngine/Window.cpp
         Source/RenderingEngine/Camera.cpp
-        Source/RenderingEngine/Renderable.cpp
-        Source/RenderingEngine/Renderer.cpp
         Source/RenderingEngine/RenderingEngine.cpp
         Source/Infrastructure/Component.cpp
         Source/Infrastructure/Exception.cpp

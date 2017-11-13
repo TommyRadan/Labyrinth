@@ -9,12 +9,12 @@ namespace RenderingEngine
     struct Image
     {
         Image();
-        Image(const std::string& filename);
+        explicit Image(const std::string& filename);
         Image(const Image& image);
         Image(Image&& image) noexcept;
 
-        Image(const uint32_t width, const uint32_t height, const OpenGL::Color& background);
-        Image(const uint32_t width, const uint32_t height, OpenGL::Color* const data);
+        Image(uint32_t width, uint32_t height, const OpenGL::Color& background);
+        Image(uint32_t width, uint32_t height, OpenGL::Color* const data);
 
         virtual ~Image();
 
@@ -27,8 +27,8 @@ namespace RenderingEngine
         const uint32_t GetHeight() const;
         const OpenGL::Color* const GetPixels() const;
 
-        OpenGL::Color GetPixel(const uint32_t x, const uint32_t y) const;
-        void SetPixel(const uint32_t x, const uint32_t y, const OpenGL::Color& color);
+        OpenGL::Color GetPixel(uint32_t x, uint32_t y) const;
+        void SetPixel(uint32_t x, uint32_t y, const OpenGL::Color& color);
 
     private:
         OpenGL::Color* m_ImageData;

@@ -1,4 +1,6 @@
 #include <RenderingEngine/RenderingEngine.hpp>
+#include <RenderingEngine/Window.hpp>
+#include <RenderingEngine/OpenGL/OpenGL.hpp>
 
 RenderingEngine::Context* RenderingEngine::Context::GetInstance()
 {

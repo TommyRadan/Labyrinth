@@ -1,6 +1,6 @@
 #pragma once
 
-#include <RenderingEngine/Renderable.hpp>
+#include <RenderingEngine/Renderables/Renderable.hpp>
 #include <RenderingEngine/Mesh/Mesh.hpp>
 
 #include <RenderingEngine/OpenGL/OpenGL.hpp>

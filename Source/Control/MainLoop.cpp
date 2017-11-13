@@ -3,6 +3,8 @@
 #include <EventProcessing/EventHandler.hpp>
 #include <RenderingEngine/RenderingEngine.hpp>
 
+#include <RenderingEngine/Window.hpp>
+
 int main(int argc, char* argv[])
 {
     (void) argc;

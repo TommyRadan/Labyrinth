@@ -1,5 +1,4 @@
 #include <RenderingEngine/Renderables/Terrain.hpp>
-#include <RenderingEngine/Renderer.hpp>
 #include <RenderingEngine/Mesh/TerrainGenerator.hpp>
 
 RenderingEngine::Terrain::Terrain()

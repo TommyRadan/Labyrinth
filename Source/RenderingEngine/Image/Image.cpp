@@ -2,7 +2,7 @@
 
 #include <Infrastructure/Exception.hpp>
 #define STB_IMAGE_IMPLEMENTATION
-#include <RenderingEngine/Image/StbImageLoader.hpp>
+#include <stb_image.hpp>
 
 RenderingEngine::Image::Image() :
         m_ImageData { nullptr },

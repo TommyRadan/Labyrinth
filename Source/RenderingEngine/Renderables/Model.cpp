@@ -1,5 +1,5 @@
 #include <RenderingEngine/Renderables/Model.hpp>
-#include <RenderingEngine/Renderer.hpp>
+#include <RenderingEngine/Renderers/Renderer.hpp>
 
 RenderingEngine::Model::Model() :
     m_VertexCount { 0 }

@@ -1,4 +1,4 @@
-#include <RenderingEngine/Renderer.hpp>
+#include <RenderingEngine/Renderers/Renderer.hpp>
 #include <RenderingEngine/OpenGL/OpenGL.hpp>
 #include <RenderingEngine/Camera.hpp>
 
