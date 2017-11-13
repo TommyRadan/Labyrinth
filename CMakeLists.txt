@@ -2,12 +2,21 @@ cmake_minimum_required(VERSION 3.2)
 project(Labyrinth)
 
 set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/CMake)
 
 # Find external dependencies
-find_package(SDL2 REQUIRED)
-find_package(OpenGL REQUIRED)
-find_package(GLEW REQUIRED)
+if (WIN32)
+    set(SDL2_INCLUDE_DIR ThirdParty/Windows/SDL2/include)
+    set(GLEW_INCLUDE_DIR ThirdParty/Windows/GLEW/include)
+    set(SDL2_LIBRARY ThirdParty/Windows/SDL2/lib/SDL2.lib
+                     ThirdParty/Windows/SDL2/lib/SDL2main.lib)
+    set(GLEW_LIBRARY ThirdParty/Windows/GLEW/lib/glew32.lib
+                     ThirdParty/Windows/GLEW/lib/glew32s.lib)
+else()
+    find_package(SDL2 REQUIRED)
+    find_package(GLEW REQUIRED)
+endif()
+
+find_package(OpenGL)
 
 # Include directories
 include_directories(Include/)
