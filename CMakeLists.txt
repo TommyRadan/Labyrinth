@@ -7,10 +7,10 @@ set(CMAKE_CXX_STANDARD 17)
 if (WIN32)
     set(SDL2_INCLUDE_DIR ThirdParty/Windows/SDL2/include)
     set(GLEW_INCLUDE_DIR ThirdParty/Windows/GLEW/include)
-    set(SDL2_LIBRARY ThirdParty/Windows/SDL2/lib/SDL2.lib
-                     ThirdParty/Windows/SDL2/lib/SDL2main.lib)
-    set(GLEW_LIBRARY ThirdParty/Windows/GLEW/lib/glew32.lib
-                     ThirdParty/Windows/GLEW/lib/glew32s.lib)
+    set(SDL2_LIBRARY ${CMAKE_CURRENT_SOURCE_DIR}/ThirdParty/Windows/SDL2/lib/SDL2.lib
+                     ${CMAKE_CURRENT_SOURCE_DIR}/ThirdParty/Windows/SDL2/lib/SDL2main.lib)
+    set(GLEW_LIBRARY ${CMAKE_CURRENT_SOURCE_DIR}/ThirdParty/Windows/GLEW/lib/glew32.lib
+                     ${CMAKE_CURRENT_SOURCE_DIR}/ThirdParty/Windows/GLEW/lib/glew32s.lib)
 else()
     find_package(SDL2 REQUIRED)
     find_package(GLEW REQUIRED)
@@ -22,8 +22,8 @@ find_package(OpenGL)
 include_directories(Include/)
 include_directories(${SDL2_INCLUDE_DIR})
 include_directories(${GLEW_INCLUDE_DIR})
-include_directories(ThirdParty/GLM/)
-include_directories(ThirdParty/STBI/)
+include_directories(ThirdParty/Agnostic/GLM/)
+include_directories(ThirdParty/Agnostic/STBI/)
 
 # Define header files
 set(LABYRINTH_HEADER_FILES
@@ -99,6 +99,11 @@ add_executable(Labyrinth
         ${LABYRINTH_SOURCE_FILES}
         ${LABYRINTH_GAME_MODULES}
         Source/Control/MainLoop.cpp)
+
+# C++17 for VisualStudio
+if (WIN32)
+	target_compile_options(Labyrinth PRIVATE /std:c++latest)
+endif ()
 
 # Link internal and external libraries
 target_link_libraries(Labyrinth ${SDL2_LIBRARY})
