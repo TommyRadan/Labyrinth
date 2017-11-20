@@ -1,0 +1,13 @@
+os:
+  - linux
+  - osx
+language: cpp
+compiler:
+  - gcc
+  - clang
+script:
+  - cmake .
+  - make
+notifications:
+  email: false
+sudo: false
