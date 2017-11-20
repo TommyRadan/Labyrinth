@@ -11,12 +11,12 @@ if (WIN32)
                      ${CMAKE_CURRENT_SOURCE_DIR}/ThirdParty/Windows/SDL2/lib/SDL2main.lib)
     set(GLEW_LIBRARY ${CMAKE_CURRENT_SOURCE_DIR}/ThirdParty/Windows/GLEW/lib/glew32.lib
                      ${CMAKE_CURRENT_SOURCE_DIR}/ThirdParty/Windows/GLEW/lib/glew32s.lib)
+    set(OPENGL_LIBRARIES opengl32.lib)
 else()
     find_package(SDL2 REQUIRED)
     find_package(GLEW REQUIRED)
+    find_package(OpenGL)
 endif()
-
-find_package(OpenGL)
 
 # Include directories
 include_directories(Include/)
