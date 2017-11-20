@@ -8,6 +8,11 @@ compiler:
 script:
   - cmake .
   - make
+addons:
+  apt:
+    packages:
+      - SDL2
+      - GLEW
 notifications:
   email: false
 sudo: false
