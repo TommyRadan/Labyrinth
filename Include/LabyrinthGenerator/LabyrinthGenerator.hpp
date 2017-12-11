@@ -15,8 +15,6 @@ struct LabyrinthGenerator
 
     bool IsWalled(const int32_t x, const int32_t y) const;
 
-    void PrintGrid() const;
-
 private:
     void ResetGrid() const;
     void SpawnStartAndEndLocation();
