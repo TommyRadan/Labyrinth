@@ -93,6 +93,18 @@ set(LABYRINTH_GAME_MODULES
         GameModules/CameraModule.cpp
         GameModules/ExitModule.cpp)
 
+# Define Source groups
+if (MSVC)
+    source_group("Source\\Control" FILES Source/Control/MainLoop.cpp)
+    source_group("GameModules" FILES ${LABYRINTH_GAME_MODULES})
+
+    foreach(file ${LABYRINTH_SOURCE_FILES} ${LABYRINTH_HEADER_FILES})
+        get_filename_component(GROUP ${file} PATH)
+        string(REGEX REPLACE "/" "\\\\" GROUP ${GROUP})
+        source_group(${GROUP} FILES ${file})
+    endforeach()
+endif()
+
 # Define main executable
 add_executable(Labyrinth
         ${LABYRINTH_HEADER_FILES}
