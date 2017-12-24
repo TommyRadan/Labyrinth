@@ -59,7 +59,7 @@ set(LABYRINTH_HEADER_FILES
         Include/Infrastructure/GameModule.hpp
         Include/Infrastructure/Settings.hpp
         Include/Utility/Random.hpp
-        Include/LabyrinthGenerator/LabyrinthGenerator.hpp)
+        Include/Utility/LabyrinthGenerator.hpp)
 
 # Define source files
 set(LABYRINTH_SOURCE_FILES
@@ -90,7 +90,7 @@ set(LABYRINTH_SOURCE_FILES
         Source/Infrastructure/Exception.cpp
         Source/Infrastructure/Settings.cpp
         Source/Utility/Random.cpp
-        Source/LabyrinthGenerator/LabyrinthGenerator.cpp)
+        Source/Utility/LabyrinthGenerator.cpp)
 
 # Define game modules
 set(LABYRINTH_GAME_MODULES

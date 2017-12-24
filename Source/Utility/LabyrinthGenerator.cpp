@@ -1,12 +1,11 @@
-#include "LabyrinthGenerator/LabyrinthGenerator.hpp"
+#include "Utility/LabyrinthGenerator.hpp"
 
 enum Direction
 {
     NORTH,
     EAST,
     SOUTH,
-    WEST,
-    NUMBER_OF_DIRECTIONS
+    WEST
 };
 
 LabyrinthGenerator::LabyrinthGenerator(const int32_t width, const int32_t height) :
@@ -23,7 +22,7 @@ LabyrinthGenerator::LabyrinthGenerator(const int32_t width, const int32_t height
         m_Height++;
     }
 
-    m_Grid = std::make_unique<unsigned char[]>(m_Width * m_Height);
+    m_Grid = std::unique_ptr<unsigned char[]>(new unsigned char[m_Width * m_Height]);
 
     ResetGrid();
     Visit(1, 1);
@@ -146,12 +145,7 @@ bool LabyrinthGenerator::IsInBounds(const int32_t x, const int32_t y) const
         return false;
     }
 
-    if (y < 0 || y >= m_Height)
-    {
-        return false;
-    }
-
-    return true;
+    return y >= 0 || y < m_Height;
 }
 
 int32_t LabyrinthGenerator::XYToIndex(const int32_t x, const int32_t y) const

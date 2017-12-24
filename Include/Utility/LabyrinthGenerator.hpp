@@ -7,22 +7,22 @@
 
 struct LabyrinthGenerator
 {
-    LabyrinthGenerator(const int32_t width, const int32_t height);
+    LabyrinthGenerator(int32_t width, int32_t height);
     LabyrinthGenerator(LabyrinthGenerator&) = delete;
     LabyrinthGenerator(LabyrinthGenerator&&) = delete;
     LabyrinthGenerator& operator=(LabyrinthGenerator&) = delete;
     LabyrinthGenerator& operator=(LabyrinthGenerator&&) = delete;
 
-    bool IsWalled(const int32_t x, const int32_t y) const;
+    bool IsWalled(int32_t x, int32_t y) const;
 
-private:
+ private:
     void ResetGrid() const;
     void SpawnStartAndEndLocation();
-    void Visit(const int32_t x, const int32_t y);
+    void Visit(int32_t x, int32_t y);
 
-    int32_t GetRandomIndexInQuadrant(const int32_t quadrant) const;
-    bool IsInBounds(const int32_t x, const int32_t y) const;
-    int32_t XYToIndex(const int32_t x, const int32_t y) const;
+    int32_t GetRandomIndexInQuadrant(int32_t quadrant) const;
+    bool IsInBounds(int32_t x, int32_t y) const;
+    int32_t XYToIndex(int32_t x, int32_t y) const;
 
     Random m_Random;
 
