@@ -1,0 +1,267 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Include">
+      <UniqueIdentifier>{bd1ccb7e-78a7-4a09-ba48-fdb743fd200a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source">
+      <UniqueIdentifier>{21488fc4-a1f2-4a17-b8ce-811f7d29f34b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameModules">
+      <UniqueIdentifier>{3edaa02c-aaae-4a9e-b872-f8833b70fe44}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Include\EventProcessing">
+      <UniqueIdentifier>{9fe748e2-efdf-497d-bc3e-43b91872eee6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Include\Infrastructure">
+      <UniqueIdentifier>{334fc027-e642-4ba3-9f8f-be548e05bfa3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Include\RenderingEngine">
+      <UniqueIdentifier>{dc1a2b6a-1a49-4c07-ad20-b668c1609b28}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Include\Utility">
+      <UniqueIdentifier>{6ba63be1-e2af-4602-b486-6a8de56f3f70}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Include\RenderingEngine\Image">
+      <UniqueIdentifier>{ba7b565c-9cdd-4235-936a-595e5eb52171}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Include\RenderingEngine\Mesh">
+      <UniqueIdentifier>{5972be66-e074-40bc-b7d5-a6631cde8e9e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Include\RenderingEngine\OpenGL">
+      <UniqueIdentifier>{b8d8960f-1c0d-432d-8e53-63ad4a3b8879}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Include\RenderingEngine\Renderables">
+      <UniqueIdentifier>{1722f4d4-c066-4471-a494-75e1a814f20a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Include\RenderingEngine\Renderers">
+      <UniqueIdentifier>{dc264474-11ea-4504-a181-b9ee55647e57}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Control">
+      <UniqueIdentifier>{e23263f7-227c-4f16-9c48-ff3f689a40bd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\EventProcessing">
+      <UniqueIdentifier>{d9467df4-b5bf-4b71-bbc5-b621e59b6046}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Infrastructure">
+      <UniqueIdentifier>{c2ae3a96-43a5-4451-8a83-222a78ba1a91}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\RenderingEngine">
+      <UniqueIdentifier>{81d384a0-d5f0-435a-a7a6-4de1419a28d0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Utility">
+      <UniqueIdentifier>{6e5d9813-caf5-459e-bb3a-28399abbf1b9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\RenderingEngine\Image">
+      <UniqueIdentifier>{58e5cdaf-9ef3-42b0-b39b-92b5431bc526}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\RenderingEngine\Mesh">
+      <UniqueIdentifier>{074237a3-f4e9-40c7-bf74-895020ca74e4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\RenderingEngine\OpenGL">
+      <UniqueIdentifier>{5fdc96d7-4ff4-4bf4-9265-d49e03f0df42}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\RenderingEngine\Renderables">
+      <UniqueIdentifier>{55a69426-25a4-477f-a61a-cdc34a8b0ecb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\RenderingEngine\Renderers">
+      <UniqueIdentifier>{b6736860-d3cf-47b2-9d4c-e9ed609d7de7}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\Include\EventProcessing\EventHandler.hpp">
+      <Filter>Include\EventProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\EventProcessing\EventProcessing.hpp">
+      <Filter>Include\EventProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\Infrastructure\Component.hpp">
+      <Filter>Include\Infrastructure</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\Infrastructure\Exception.hpp">
+      <Filter>Include\Infrastructure</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\Infrastructure\GameModule.hpp">
+      <Filter>Include\Infrastructure</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\Infrastructure\Settings.hpp">
+      <Filter>Include\Infrastructure</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\Utility\LabyrinthGenerator.hpp">
+      <Filter>Include\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\Utility\Random.hpp">
+      <Filter>Include\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\RenderingEngine\Camera.hpp">
+      <Filter>Include\RenderingEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\RenderingEngine\RenderingEngine.hpp">
+      <Filter>Include\RenderingEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\RenderingEngine\RenderOptions.hpp">
+      <Filter>Include\RenderingEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\RenderingEngine\Window.hpp">
+      <Filter>Include\RenderingEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\RenderingEngine\Image\Image.hpp">
+      <Filter>Include\RenderingEngine\Image</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\RenderingEngine\Mesh\Mesh.hpp">
+      <Filter>Include\RenderingEngine\Mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\RenderingEngine\Mesh\ObjLoader.hpp">
+      <Filter>Include\RenderingEngine\Mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\RenderingEngine\Mesh\TerrainGenerator.hpp">
+      <Filter>Include\RenderingEngine\Mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\RenderingEngine\Mesh\Vertex.hpp">
+      <Filter>Include\RenderingEngine\Mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\RenderingEngine\Renderers\BasicRenderer.hpp">
+      <Filter>Include\RenderingEngine\Renderers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\RenderingEngine\Renderers\Renderer.hpp">
+      <Filter>Include\RenderingEngine\Renderers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\RenderingEngine\Renderers\SkyRenderer.hpp">
+      <Filter>Include\RenderingEngine\Renderers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\RenderingEngine\Renderers\TerrainRenderer.hpp">
+      <Filter>Include\RenderingEngine\Renderers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\RenderingEngine\Renderables\Model.hpp">
+      <Filter>Include\RenderingEngine\Renderables</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\RenderingEngine\Renderables\Renderable.hpp">
+      <Filter>Include\RenderingEngine\Renderables</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\RenderingEngine\Renderables\Terrain.hpp">
+      <Filter>Include\RenderingEngine\Renderables</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\RenderingEngine\OpenGL\Color.hpp">
+      <Filter>Include\RenderingEngine\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\RenderingEngine\OpenGL\Framebuffer.hpp">
+      <Filter>Include\RenderingEngine\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\RenderingEngine\OpenGL\OpenGL.hpp">
+      <Filter>Include\RenderingEngine\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\RenderingEngine\OpenGL\Program.hpp">
+      <Filter>Include\RenderingEngine\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\RenderingEngine\OpenGL\Shader.hpp">
+      <Filter>Include\RenderingEngine\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\RenderingEngine\OpenGL\Texture.hpp">
+      <Filter>Include\RenderingEngine\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\RenderingEngine\OpenGL\Typedef.hpp">
+      <Filter>Include\RenderingEngine\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\RenderingEngine\OpenGL\VertexArray.hpp">
+      <Filter>Include\RenderingEngine\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\RenderingEngine\OpenGL\VertexBuffer.hpp">
+      <Filter>Include\RenderingEngine\OpenGL</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\GameModules\CameraModule.cpp">
+      <Filter>GameModules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\GameModules\ExitModule.cpp">
+      <Filter>GameModules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\Control\MainLoop.cpp">
+      <Filter>Source\Control</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\EventProcessing\EventHandler.cpp">
+      <Filter>Source\EventProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\EventProcessing\EventProcessing.cpp">
+      <Filter>Source\EventProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\Infrastructure\Component.cpp">
+      <Filter>Source\Infrastructure</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\Infrastructure\Exception.cpp">
+      <Filter>Source\Infrastructure</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\Infrastructure\Settings.cpp">
+      <Filter>Source\Infrastructure</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\Utility\LabyrinthGenerator.cpp">
+      <Filter>Source\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\Utility\Random.cpp">
+      <Filter>Source\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\RenderingEngine\Camera.cpp">
+      <Filter>Source\RenderingEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\RenderingEngine\RenderingEngine.cpp">
+      <Filter>Source\RenderingEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\RenderingEngine\Window.cpp">
+      <Filter>Source\RenderingEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\RenderingEngine\Image\Image.cpp">
+      <Filter>Source\RenderingEngine\Image</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\RenderingEngine\Mesh\Mesh.cpp">
+      <Filter>Source\RenderingEngine\Mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\RenderingEngine\Mesh\ObjLoader.cpp">
+      <Filter>Source\RenderingEngine\Mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\RenderingEngine\Mesh\TerrainGenerator.cpp">
+      <Filter>Source\RenderingEngine\Mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\RenderingEngine\Renderers\BasicRenderer.cpp">
+      <Filter>Source\RenderingEngine\Renderers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\RenderingEngine\Renderers\Renderer.cpp">
+      <Filter>Source\RenderingEngine\Renderers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\RenderingEngine\Renderers\SkyRenderer.cpp">
+      <Filter>Source\RenderingEngine\Renderers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\RenderingEngine\Renderers\TerrainRenderer.cpp">
+      <Filter>Source\RenderingEngine\Renderers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\RenderingEngine\Renderables\Model.cpp">
+      <Filter>Source\RenderingEngine\Renderables</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\RenderingEngine\Renderables\Renderable.cpp">
+      <Filter>Source\RenderingEngine\Renderables</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\RenderingEngine\Renderables\Terrain.cpp">
+      <Filter>Source\RenderingEngine\Renderables</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\RenderingEngine\OpenGL\Framebuffer.cpp">
+      <Filter>Source\RenderingEngine\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\RenderingEngine\OpenGL\OpenGL.cpp">
+      <Filter>Source\RenderingEngine\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\RenderingEngine\OpenGL\Program.cpp">
+      <Filter>Source\RenderingEngine\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\RenderingEngine\OpenGL\Shader.cpp">
+      <Filter>Source\RenderingEngine\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\RenderingEngine\OpenGL\Texture.cpp">
+      <Filter>Source\RenderingEngine\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\RenderingEngine\OpenGL\VertexArray.cpp">
+      <Filter>Source\RenderingEngine\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\RenderingEngine\OpenGL\VertexBuffer.cpp">
+      <Filter>Source\RenderingEngine\OpenGL</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

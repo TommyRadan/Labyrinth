@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>15.0</VCProjectVersion>
+    <ProjectGuid>{513A3FAB-3746-4288-A6FA-F1CFC3326DBD}</ProjectGuid>
+    <RootNamespace>Labyrinth</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <IncludePath>$(SolutionDir)..\Include;$(SolutionDir)..\ThirdParty\STBI;$(SolutionDir)..\ThirdParty\SDL2\include;$(SolutionDir)..\ThirdParty\GLM;$(SolutionDir)..\ThirdParty\GLEW\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)..\ThirdParty\SDL2\lib;$(SolutionDir)..\ThirdParty\GLEW\lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <IncludePath>$(SolutionDir)..\Include;$(SolutionDir)..\ThirdParty\STBI;$(SolutionDir)..\ThirdParty\SDL2\include;$(SolutionDir)..\ThirdParty\GLM;$(SolutionDir)..\ThirdParty\GLEW\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)..\ThirdParty\SDL2\lib;$(SolutionDir)..\ThirdParty\GLEW\lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;glew32.lib;glew32s.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;glew32.lib;glew32s.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="..\Include\EventProcessing\EventHandler.hpp" />
+    <ClInclude Include="..\Include\EventProcessing\EventProcessing.hpp" />
+    <ClInclude Include="..\Include\Infrastructure\Component.hpp" />
+    <ClInclude Include="..\Include\Infrastructure\Exception.hpp" />
+    <ClInclude Include="..\Include\Infrastructure\GameModule.hpp" />
+    <ClInclude Include="..\Include\Infrastructure\Settings.hpp" />
+    <ClInclude Include="..\Include\RenderingEngine\Camera.hpp" />
+    <ClInclude Include="..\Include\RenderingEngine\Image\Image.hpp" />
+    <ClInclude Include="..\Include\RenderingEngine\Mesh\Mesh.hpp" />
+    <ClInclude Include="..\Include\RenderingEngine\Mesh\ObjLoader.hpp" />
+    <ClInclude Include="..\Include\RenderingEngine\Mesh\TerrainGenerator.hpp" />
+    <ClInclude Include="..\Include\RenderingEngine\Mesh\Vertex.hpp" />
+    <ClInclude Include="..\Include\RenderingEngine\OpenGL\Color.hpp" />
+    <ClInclude Include="..\Include\RenderingEngine\OpenGL\Framebuffer.hpp" />
+    <ClInclude Include="..\Include\RenderingEngine\OpenGL\OpenGL.hpp" />
+    <ClInclude Include="..\Include\RenderingEngine\OpenGL\Program.hpp" />
+    <ClInclude Include="..\Include\RenderingEngine\OpenGL\Shader.hpp" />
+    <ClInclude Include="..\Include\RenderingEngine\OpenGL\Texture.hpp" />
+    <ClInclude Include="..\Include\RenderingEngine\OpenGL\Typedef.hpp" />
+    <ClInclude Include="..\Include\RenderingEngine\OpenGL\VertexArray.hpp" />
+    <ClInclude Include="..\Include\RenderingEngine\OpenGL\VertexBuffer.hpp" />
+    <ClInclude Include="..\Include\RenderingEngine\Renderables\Model.hpp" />
+    <ClInclude Include="..\Include\RenderingEngine\Renderables\Renderable.hpp" />
+    <ClInclude Include="..\Include\RenderingEngine\Renderables\Terrain.hpp" />
+    <ClInclude Include="..\Include\RenderingEngine\Renderers\BasicRenderer.hpp" />
+    <ClInclude Include="..\Include\RenderingEngine\Renderers\Renderer.hpp" />
+    <ClInclude Include="..\Include\RenderingEngine\Renderers\SkyRenderer.hpp" />
+    <ClInclude Include="..\Include\RenderingEngine\Renderers\TerrainRenderer.hpp" />
+    <ClInclude Include="..\Include\RenderingEngine\RenderingEngine.hpp" />
+    <ClInclude Include="..\Include\RenderingEngine\RenderOptions.hpp" />
+    <ClInclude Include="..\Include\RenderingEngine\Window.hpp" />
+    <ClInclude Include="..\Include\Utility\LabyrinthGenerator.hpp" />
+    <ClInclude Include="..\Include\Utility\Random.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\GameModules\CameraModule.cpp" />
+    <ClCompile Include="..\GameModules\ExitModule.cpp" />
+    <ClCompile Include="..\Source\Control\MainLoop.cpp" />
+    <ClCompile Include="..\Source\EventProcessing\EventHandler.cpp" />
+    <ClCompile Include="..\Source\EventProcessing\EventProcessing.cpp" />
+    <ClCompile Include="..\Source\Infrastructure\Component.cpp" />
+    <ClCompile Include="..\Source\Infrastructure\Exception.cpp" />
+    <ClCompile Include="..\Source\Infrastructure\Settings.cpp" />
+    <ClCompile Include="..\Source\RenderingEngine\Camera.cpp" />
+    <ClCompile Include="..\Source\RenderingEngine\Image\Image.cpp" />
+    <ClCompile Include="..\Source\RenderingEngine\Mesh\Mesh.cpp" />
+    <ClCompile Include="..\Source\RenderingEngine\Mesh\ObjLoader.cpp" />
+    <ClCompile Include="..\Source\RenderingEngine\Mesh\TerrainGenerator.cpp" />
+    <ClCompile Include="..\Source\RenderingEngine\OpenGL\Framebuffer.cpp" />
+    <ClCompile Include="..\Source\RenderingEngine\OpenGL\OpenGL.cpp" />
+    <ClCompile Include="..\Source\RenderingEngine\OpenGL\Program.cpp" />
+    <ClCompile Include="..\Source\RenderingEngine\OpenGL\Shader.cpp" />
+    <ClCompile Include="..\Source\RenderingEngine\OpenGL\Texture.cpp" />
+    <ClCompile Include="..\Source\RenderingEngine\OpenGL\VertexArray.cpp" />
+    <ClCompile Include="..\Source\RenderingEngine\OpenGL\VertexBuffer.cpp" />
+    <ClCompile Include="..\Source\RenderingEngine\Renderables\Model.cpp" />
+    <ClCompile Include="..\Source\RenderingEngine\Renderables\Renderable.cpp" />
+    <ClCompile Include="..\Source\RenderingEngine\Renderables\Terrain.cpp" />
+    <ClCompile Include="..\Source\RenderingEngine\Renderers\BasicRenderer.cpp" />
+    <ClCompile Include="..\Source\RenderingEngine\Renderers\Renderer.cpp" />
+    <ClCompile Include="..\Source\RenderingEngine\Renderers\SkyRenderer.cpp" />
+    <ClCompile Include="..\Source\RenderingEngine\Renderers\TerrainRenderer.cpp" />
+    <ClCompile Include="..\Source\RenderingEngine\RenderingEngine.cpp" />
+    <ClCompile Include="..\Source\RenderingEngine\Window.cpp" />
+    <ClCompile Include="..\Source\Utility\LabyrinthGenerator.cpp" />
+    <ClCompile Include="..\Source\Utility\Random.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
