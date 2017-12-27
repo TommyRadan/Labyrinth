@@ -67,6 +67,12 @@
     <Filter Include="Source\RenderingEngine\Renderers">
       <UniqueIdentifier>{b6736860-d3cf-47b2-9d4c-e9ed609d7de7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Include\AudioEngine">
+      <UniqueIdentifier>{3e06dd2b-a0a9-44fc-8b2f-f1b0199a033e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\AudioEngine">
+      <UniqueIdentifier>{89d2a1a2-ba09-4e10-bf49-2bc42b9fc4fd}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Include\EventProcessing\EventHandler.hpp">
@@ -168,6 +174,12 @@
     <ClInclude Include="..\Include\RenderingEngine\OpenGL\VertexBuffer.hpp">
       <Filter>Include\RenderingEngine\OpenGL</Filter>
     </ClInclude>
+    <ClInclude Include="..\Include\AudioEngine\AudioMaster.hpp">
+      <Filter>Include\AudioEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\AudioEngine\SoundSource.hpp">
+      <Filter>Include\AudioEngine</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\GameModules\CameraModule.cpp">
@@ -262,6 +274,12 @@
     </ClCompile>
     <ClCompile Include="..\Source\RenderingEngine\OpenGL\VertexBuffer.cpp">
       <Filter>Source\RenderingEngine\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\AudioEngine\AudioMaster.cpp">
+      <Filter>Source\AudioEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\AudioEngine\SoundSource.cpp">
+      <Filter>Source\AudioEngine</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
