@@ -1,6 +1,8 @@
 #pragma once
 
 #include <Infrastructure/Component.hpp>
+#include <RenderingEngine\Renderables\Renderable.hpp>
+#include <vector>
 
 namespace RenderingEngine
 {
@@ -14,6 +16,10 @@ namespace RenderingEngine
         void Init() final;
         void Quit() final;
 
+		void AddRenderable(Renderable* renderable);
         void Render();
+
+	private:
+		std::vector<Renderable*> m_Renderables;
     };
 }

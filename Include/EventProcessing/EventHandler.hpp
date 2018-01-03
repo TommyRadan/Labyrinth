@@ -31,12 +31,16 @@ namespace EventProcessing
 
         void HandleEvents();
 
+		void RegisterOnGameStartCallback(std::function<void()> callback);
+		void RegisterOnGameEndCallback(std::function<void()> callback);
         void RegisterOnFrameCallback(std::function<void(uint32_t)> callback);
         void RegisterOnKeyDownCallback(std::function<void(KeyCode)> callback);
         void RegisterOnKeyUpCallback(std::function<void(KeyCode)> callback);
         void RegisterKeyPressedCallback(std::function<void(KeyCode, uint32_t)> callback);
         void RegisterOnMouseMoveCallback(std::function<void(int32_t, int32_t)> callback);
 
+		void DispatchOnGameStartCallback();
+		void DispatchOnGameEndCallback();
         void DispatchOnFrameCallback(uint32_t deltaTime);
         void DispatchOnKeyDownCallback(KeyCode keyCode);
         void DispatchOnKeyUpCallback(KeyCode keyCode);
@@ -48,6 +52,8 @@ namespace EventProcessing
     private:
         void HandleFrame();
 
+		std::vector<std::function<void()>> m_OnGameStartCallbacks;
+		std::vector<std::function<void()>> m_OnGameEndCallbacks;
         std::vector<std::function<void(uint32_t)>> m_OnFrameCallbacks;
         std::vector<std::function<void(KeyCode)>> m_OnKeyDownCallbacks;
         std::vector<std::function<void(KeyCode)>> m_OnKeyUpCallbacks;

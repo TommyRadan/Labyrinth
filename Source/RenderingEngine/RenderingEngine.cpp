@@ -2,6 +2,8 @@
 #include <RenderingEngine/Window.hpp>
 #include <RenderingEngine/OpenGL/OpenGL.hpp>
 
+#include <RenderingEngine\Renderers\BasicRenderer.hpp>
+
 RenderingEngine::Context* RenderingEngine::Context::GetInstance()
 {
     static Context* instance = nullptr;
@@ -29,13 +31,24 @@ void RenderingEngine::Context::Quit()
     RenderingEngine::Window::GetInstance()->Quit();
 }
 
+void  RenderingEngine::Context::AddRenderable(Renderable* renderable)
+{
+	m_Renderables.push_back(renderable);
+}
+
 void RenderingEngine::Context::Render()
 {
     RenderingEngine::Window::GetInstance()->Clear();
 
-    /**
-     * TODO: Render the scene here.
-     */
+    for (auto& renderable : m_Renderables)
+	{
+		RenderingEngine::Renderers::BasicRenderer::GetInstance()->StartRenderer();
+		RenderingEngine::Renderers::BasicRenderer::GetInstance()->SetupCamera();
+
+		renderable->Render();
+
+		RenderingEngine::Renderers::BasicRenderer::GetInstance()->StopRenderer();
+	}
 
     RenderingEngine::Window::GetInstance()->SwapBuffers();
 }

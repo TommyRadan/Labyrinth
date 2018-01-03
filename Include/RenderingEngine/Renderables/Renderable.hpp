@@ -18,6 +18,8 @@ namespace RenderingEngine
 
         glm::mat4 GetModelMatrix() const;
 
+		virtual void Render() = 0;
+
     private:
         mutable glm::mat4 m_ModelMatrix;
         mutable bool m_IsModelMatrixDirty;
