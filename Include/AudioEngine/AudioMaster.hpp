@@ -6,16 +6,23 @@
 
 class AudioMaster
 {
-public:
-	AudioMaster();
-	~AudioMaster();
+ public:
+    AudioMaster();
+    ~AudioMaster();
 
-	uint32_t LoadSound(const std::string& filePath);
+    AudioMaster(AudioMaster&) = delete;
+    AudioMaster(AudioMaster&&) = delete;
+    AudioMaster& operator=(AudioMaster&) = delete;
+    AudioMaster& operator=(AudioMaster&&) = delete;
 
-	void SetListenerPosition(float x, float y, float z);
-	void SetListenerVelocity(float x, float y, float z);
-	void SetListenerOrientation(const float listenerOrientation[6]);
+    static AudioMaster* GetInstance();
 
-private:
-	std::list<uint32_t> m_Buffers;
+    uint32_t LoadSound(const std::string& filePath);
+
+    void SetListenerPosition(float x, float y, float z);
+    void SetListenerVelocity(float x, float y, float z);
+    void SetListenerOrientation(const float listenerOrientation[6]);
+
+ private:
+    std::list<uint32_t> m_Buffers;
 };
