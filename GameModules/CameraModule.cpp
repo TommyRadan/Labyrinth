@@ -51,10 +51,12 @@ static void OnKeyPressed(EventProcessing::KeyCode keyCode, uint32_t deltaTime)
 
 static void OnMouseMove(int32_t deltaX, int32_t deltaY)
 {
+#if _DEBUG
     if (!EventProcessing::EventHandler::GetInstance()->IsKeyPressed(EventProcessing::KeyCode::MOUSE_LEFT))
     {
         return;
     }
+#endif
 
     glm::vec3 rotation = RenderingEngine::Camera::GetInstance()->GetRotation();
     glm::vec3 rotationAxis {0.0f, 0.0f, 1.0f};

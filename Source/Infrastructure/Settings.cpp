@@ -1,10 +1,20 @@
 #include <Infrastructure/Settings.hpp>
+#include <SDL2\SDL.h>
 
 Settings::Settings()
 {
-    m_WindowWidth = 800;
-    m_WindowHeight = 600;
-    m_WindowType = WinType::WIN_TYPE_WINDOWED;
+#if _DEBUG
+	m_WindowWidth = 800;
+	m_WindowHeight = 600;
+	m_WindowType = WinType::WIN_TYPE_WINDOWED;
+#else
+	SDL_DisplayMode displayMode;
+	SDL_GetCurrentDisplayMode(0, &displayMode);
+
+	m_WindowWidth = displayMode.w;
+	m_WindowHeight = displayMode.h;
+	m_WindowType = WinType::WIN_TYPE_FULLSCREEN;
+#endif
 
     m_WindowName = "Labyrinth";
     m_IsDoubleBuffered = true;

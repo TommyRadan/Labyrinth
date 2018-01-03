@@ -35,6 +35,7 @@ namespace RenderingEngine
         if (type == WinType::WIN_TYPE_FULLSCREEN)
         {
             window_flags |= SDL_WINDOW_FULLSCREEN;
+			SDL_ShowCursor(SDL_DISABLE);
         }
 
         SDL_GL_SetAttribute(SDL_GL_RED_SIZE, 8);

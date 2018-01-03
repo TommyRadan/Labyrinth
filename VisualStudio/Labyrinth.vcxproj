@@ -68,23 +68,23 @@ copy /Y "$(SolutionDir)..\ThirdParty\OpenAL\lib\alut.dll"  "$(TargetDir)alut.dll
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <WarningLevel>EnableAllWarnings</WarningLevel>
+      <WarningLevel>Level3</WarningLevel>
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <TreatWarningAsError>true</TreatWarningAsError>
+      <TreatWarningAsError>false</TreatWarningAsError>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
-      <CompileAs>CompileAsCpp</CompileAs>
+      <CompileAs>Default</CompileAs>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalDependencies>SDL2.lib;SDL2main.lib;glew32.lib;glew32s.lib;alut.lib;openal32.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <ShowProgress>LinkVerbose</ShowProgress>
-      <SuppressStartupBanner>false</SuppressStartupBanner>
-      <TreatLinkerWarningAsErrors>true</TreatLinkerWarningAsErrors>
-      <SubSystem>Windows</SubSystem>
+      <ShowProgress>NotSet</ShowProgress>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TreatLinkerWarningAsErrors>false</TreatLinkerWarningAsErrors>
+      <SubSystem>NotSet</SubSystem>
     </Link>
     <PostBuildEvent>
       <Command>copy /Y "$(SolutionDir)..\ThirdParty\GLEW\lib\glew32.dll" "$(TargetDir)glew32.dll"
