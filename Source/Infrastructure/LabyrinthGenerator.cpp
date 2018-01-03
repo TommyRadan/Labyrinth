@@ -1,4 +1,4 @@
-#include "Utility/LabyrinthGenerator.hpp"
+#include "Infrastructure/LabyrinthGenerator.hpp"
 
 enum Direction
 {

@@ -1,6 +1,6 @@
 #pragma once
 
-#include <Utility/Random.hpp>
+#include <Infrastructure/Random.hpp>
 
 #include <cstdint>
 #include <memory>

@@ -19,9 +19,6 @@
     <Filter Include="Include\RenderingEngine">
       <UniqueIdentifier>{dc1a2b6a-1a49-4c07-ad20-b668c1609b28}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Include\Utility">
-      <UniqueIdentifier>{6ba63be1-e2af-4602-b486-6a8de56f3f70}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Include\RenderingEngine\Image">
       <UniqueIdentifier>{ba7b565c-9cdd-4235-936a-595e5eb52171}</UniqueIdentifier>
     </Filter>
@@ -48,9 +45,6 @@
     </Filter>
     <Filter Include="Source\RenderingEngine">
       <UniqueIdentifier>{81d384a0-d5f0-435a-a7a6-4de1419a28d0}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source\Utility">
-      <UniqueIdentifier>{6e5d9813-caf5-459e-bb3a-28399abbf1b9}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source\RenderingEngine\Image">
       <UniqueIdentifier>{58e5cdaf-9ef3-42b0-b39b-92b5431bc526}</UniqueIdentifier>
@@ -92,12 +86,6 @@
     </ClInclude>
     <ClInclude Include="..\Include\Infrastructure\Settings.hpp">
       <Filter>Include\Infrastructure</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Include\Utility\LabyrinthGenerator.hpp">
-      <Filter>Include\Utility</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Include\Utility\Random.hpp">
-      <Filter>Include\Utility</Filter>
     </ClInclude>
     <ClInclude Include="..\Include\RenderingEngine\Camera.hpp">
       <Filter>Include\RenderingEngine</Filter>
@@ -183,6 +171,12 @@
     <ClInclude Include="..\Include\RenderingEngine\Renderers\TexturedRenderer.hpp">
       <Filter>Include\RenderingEngine\Renderers</Filter>
     </ClInclude>
+    <ClInclude Include="..\Include\Infrastructure\LabyrinthGenerator.hpp">
+      <Filter>Include\Infrastructure</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\Infrastructure\Random.hpp">
+      <Filter>Include\Infrastructure</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\GameModules\CameraModule.cpp">
@@ -208,12 +202,6 @@
     </ClCompile>
     <ClCompile Include="..\Source\Infrastructure\Settings.cpp">
       <Filter>Source\Infrastructure</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Source\Utility\LabyrinthGenerator.cpp">
-      <Filter>Source\Utility</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Source\Utility\Random.cpp">
-      <Filter>Source\Utility</Filter>
     </ClCompile>
     <ClCompile Include="..\Source\RenderingEngine\Camera.cpp">
       <Filter>Source\RenderingEngine</Filter>
@@ -295,6 +283,12 @@
     </ClCompile>
     <ClCompile Include="..\Source\RenderingEngine\Renderers\TexturedRenderer.cpp">
       <Filter>Source\RenderingEngine\Renderers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\Infrastructure\LabyrinthGenerator.cpp">
+      <Filter>Source\Infrastructure</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\Infrastructure\Random.cpp">
+      <Filter>Source\Infrastructure</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
