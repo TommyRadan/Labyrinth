@@ -1,6 +1,7 @@
 #pragma once
 
 #include <glm.hpp>
+#include <RenderingEngine\RenderOptions.hpp>
 
 namespace RenderingEngine
 {
@@ -19,6 +20,8 @@ namespace RenderingEngine
         glm::mat4 GetModelMatrix() const;
 
 		virtual void Render() = 0;
+
+		RenderOptions options;
 
     private:
         mutable glm::mat4 m_ModelMatrix;

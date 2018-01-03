@@ -180,6 +180,9 @@
     <ClInclude Include="..\Include\AudioEngine\SoundSource.hpp">
       <Filter>Include\AudioEngine</Filter>
     </ClInclude>
+    <ClInclude Include="..\Include\RenderingEngine\Renderers\TexturedRenderer.hpp">
+      <Filter>Include\RenderingEngine\Renderers</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\GameModules\CameraModule.cpp">
@@ -289,6 +292,9 @@
     </ClCompile>
     <ClCompile Include="..\GameModules\SoundModule.cpp">
       <Filter>GameModules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\RenderingEngine\Renderers\TexturedRenderer.cpp">
+      <Filter>Source\RenderingEngine\Renderers</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

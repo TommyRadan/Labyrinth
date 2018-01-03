@@ -2,7 +2,7 @@
 #include <RenderingEngine/Window.hpp>
 #include <RenderingEngine/OpenGL/OpenGL.hpp>
 
-#include <RenderingEngine\Renderers\BasicRenderer.hpp>
+#include <RenderingEngine\Renderers\TexturedRenderer.hpp>
 
 RenderingEngine::Context* RenderingEngine::Context::GetInstance()
 {
@@ -40,15 +40,15 @@ void RenderingEngine::Context::Render()
 {
     RenderingEngine::Window::GetInstance()->Clear();
 
+	RenderingEngine::Renderers::TexturedRenderer::GetInstance()->StartRenderer();
+	RenderingEngine::Renderers::TexturedRenderer::GetInstance()->SetupCamera();
+
     for (auto& renderable : m_Renderables)
 	{
-		RenderingEngine::Renderers::BasicRenderer::GetInstance()->StartRenderer();
-		RenderingEngine::Renderers::BasicRenderer::GetInstance()->SetupCamera();
-
 		renderable->Render();
-
-		RenderingEngine::Renderers::BasicRenderer::GetInstance()->StopRenderer();
 	}
+
+	RenderingEngine::Renderers::TexturedRenderer::GetInstance()->StopRenderer();
 
     RenderingEngine::Window::GetInstance()->SwapBuffers();
 }

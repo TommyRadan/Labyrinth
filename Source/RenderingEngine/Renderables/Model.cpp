@@ -29,6 +29,7 @@ void RenderingEngine::Model::UploadMesh(const RenderingEngine::Mesh& mesh)
 void RenderingEngine::Model::Render()
 {
     RenderingEngine::Renderer::GetCurrentRenderer()->UploadMatrix4("modelMatrix", this->GetModelMatrix());
+	RenderingEngine::Renderer::GetCurrentRenderer()->SetupOptions(options);
 
     RenderingEngine::OpenGL::Context::GetInstance()->DrawArrays(m_VertexArrayObject,
                                                                 RenderingEngine::OpenGL::Primitive::Triangles,

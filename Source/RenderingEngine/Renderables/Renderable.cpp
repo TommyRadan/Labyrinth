@@ -17,7 +17,7 @@ void RenderingEngine::Renderable::SetPosition(const glm::vec3& position)
 
 void RenderingEngine::Renderable::SetRotation(const glm::vec3& rotation)
 {
-    m_Rotation = glm::normalize(rotation);
+	m_Rotation = rotation;
     m_IsModelMatrixDirty = true;
 }
 
