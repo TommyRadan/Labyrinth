@@ -281,5 +281,14 @@
     <ClCompile Include="..\Source\AudioEngine\SoundSource.cpp">
       <Filter>Source\AudioEngine</Filter>
     </ClCompile>
+    <ClCompile Include="..\GameModules\WorldModule.cpp">
+      <Filter>GameModules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\GameModules\SkyModule.cpp">
+      <Filter>GameModules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\GameModules\SoundModule.cpp">
+      <Filter>GameModules</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

@@ -21,6 +21,8 @@ int main(int argc, char* argv[])
         return EXIT_FAILURE;
     }
 
+	EventProcessing::EventHandler::GetInstance()->DispatchOnGameStartCallback();
+
     try
     {
         for (;;)
@@ -36,6 +38,8 @@ int main(int argc, char* argv[])
         RenderingEngine::Window::GetInstance()->ShowMessage("Error", e.what());
         return EXIT_FAILURE;
     }
+
+	EventProcessing::EventHandler::GetInstance()->DispatchOnGameEndCallback();
 
     RenderingEngine::Context::GetInstance()->Quit();
     EventProcessing::Context::GetInstance()->Quit();

@@ -109,6 +109,16 @@ void EventProcessing::EventHandler::HandleFrame()
     DispatchOnFrameCallback(deltaTime);
 }
 
+void EventProcessing::EventHandler::RegisterOnGameStartCallback(std::function<void()> callback)
+{
+	m_OnGameStartCallbacks.push_back(callback);
+}
+
+void EventProcessing::EventHandler::RegisterOnGameEndCallback(std::function<void()> callback)
+{
+	m_OnGameEndCallbacks.push_back(callback);
+}
+
 void EventProcessing::EventHandler::RegisterOnFrameCallback(std::function<void(uint32_t)> callback)
 {
     m_OnFrameCallbacks.push_back(callback);
@@ -132,6 +142,22 @@ void EventProcessing::EventHandler::RegisterKeyPressedCallback(std::function<voi
 void EventProcessing::EventHandler::RegisterOnMouseMoveCallback(std::function<void(int32_t, int32_t)> callback)
 {
     m_OnMouseMoveCallbacks.push_back(callback);
+}
+
+void EventProcessing::EventHandler::DispatchOnGameStartCallback()
+{
+	for (auto& callback : m_OnGameStartCallbacks)
+	{
+		callback();
+	}
+}
+
+void EventProcessing::EventHandler::DispatchOnGameEndCallback()
+{
+	for (auto& callback : m_OnGameEndCallbacks)
+	{
+		callback();
+	}
 }
 
 void EventProcessing::EventHandler::DispatchOnFrameCallback(uint32_t deltaTime)

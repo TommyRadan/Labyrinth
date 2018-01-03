@@ -1,8 +1,6 @@
 #include <Infrastructure/GameModule.hpp>
-#include <EventProcessing/EventHandler.hpp>
-#include <EventProcessing/EventProcessing.hpp>
 
-void OnKeyDown(EventProcessing::KeyCode keyCode)
+static void OnKeyDown(EventProcessing::KeyCode keyCode)
 {
     if (keyCode == EventProcessing::KeyCode::ESCAPE)
     {

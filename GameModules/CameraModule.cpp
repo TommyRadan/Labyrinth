@@ -1,6 +1,4 @@
 #include <Infrastructure/GameModule.hpp>
-#include <EventProcessing/EventProcessing.hpp>
-#include <EventProcessing/EventHandler.hpp>
 #include <RenderingEngine/Camera.hpp>
 #include <Infrastructure/Settings.hpp>
 #define GLM_ENABLE_EXPERIMENTAL
