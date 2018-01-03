@@ -1,5 +1,7 @@
 #include <Infrastructure/GameModule.hpp>
 
+#include <RenderingEngine\Mesh\TerrainGenerator.hpp>
+
 #include <RenderingEngine\RenderingEngine.hpp>
 #include <RenderingEngine\Mesh\ObjLoader.hpp>
 #include <RenderingEngine\Mesh\Mesh.hpp>
@@ -8,22 +10,16 @@
 
 #include <RenderingEngine\Camera.hpp>
 
-static std::vector<RenderingEngine::Vertex> objFile;
-static RenderingEngine::Mesh mesh;
 static RenderingEngine::Model* model;
 static RenderingEngine::Image* image;
 static RenderingEngine::OpenGL::Texture* texture;
 
 static void OnGameStart()
 {
-	objFile = RenderingEngine::LoadOBJ("../Assets/obj/SkyBox/SkyBox.obj");
-	mesh.UploadOBJ(objFile);
-
 	model = new RenderingEngine::Model;
-	model->UploadMesh(mesh);
+	model->UploadMesh(RenderingEngine::GenerateTerrain());
 
-	image = new RenderingEngine::Image("../Assets/textures/skybox.png");
-
+	image = new RenderingEngine::Image("../Assets/textures/grass.png");
 	texture = new RenderingEngine::OpenGL::Texture;
 
 	texture->Image2D(image->GetPixels(),
@@ -41,9 +37,6 @@ static void OnGameStart()
 
 	model->options.Textures["tex"] = texture;
 
-	model->SetRotation(glm::vec3(3.14f, 0.0f, 0.0f));
-	model->SetScale(glm::vec3(100.0f, 100.0f, 100.0f));
-	
 	RenderingEngine::Context::GetInstance()->AddRenderable(model);
 }
 
@@ -54,17 +47,9 @@ static void OnGameEnd()
 	delete image;
 }
 
-static void OnFrame(uint32_t deltaTime)
-{
-	(void) deltaTime;
-
-	model->SetPosition(RenderingEngine::Camera::GetInstance()->GetPosition());
-}
-
 bool ModuleInit()
 {
 	EventProcessing::EventHandler::GetInstance()->RegisterOnGameStartCallback(OnGameStart);
-	EventProcessing::EventHandler::GetInstance()->RegisterOnGameEndCallback(OnGameEnd);
-	EventProcessing::EventHandler::GetInstance()->RegisterOnFrameCallback(OnFrame);
+	EventProcessing::EventHandler::GetInstance()->RegisterOnGameEndCallback(OnGameStart);
 	return true;
 }

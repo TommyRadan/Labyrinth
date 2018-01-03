@@ -272,9 +272,6 @@
     <ClCompile Include="..\Source\AudioEngine\SoundSource.cpp">
       <Filter>Source\AudioEngine</Filter>
     </ClCompile>
-    <ClCompile Include="..\GameModules\WorldModule.cpp">
-      <Filter>GameModules</Filter>
-    </ClCompile>
     <ClCompile Include="..\GameModules\SkyModule.cpp">
       <Filter>GameModules</Filter>
     </ClCompile>
@@ -289,6 +286,12 @@
     </ClCompile>
     <ClCompile Include="..\Source\Infrastructure\Random.cpp">
       <Filter>Source\Infrastructure</Filter>
+    </ClCompile>
+    <ClCompile Include="..\GameModules\TerrainModule.cpp">
+      <Filter>GameModules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\GameModules\LabyrinthModule.cpp">
+      <Filter>GameModules</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
