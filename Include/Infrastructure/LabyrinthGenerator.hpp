@@ -13,6 +13,8 @@ struct LabyrinthGenerator
     LabyrinthGenerator& operator=(LabyrinthGenerator&) = delete;
     LabyrinthGenerator& operator=(LabyrinthGenerator&&) = delete;
 
+    bool IsGoblet(int32_t x, int32_t y) const;
+    bool IsStart(int32_t x, int32_t y) const;
     bool IsWalled(int32_t x, int32_t y) const;
 
  private:

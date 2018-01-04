@@ -29,6 +29,16 @@ LabyrinthGenerator::LabyrinthGenerator(const int32_t width, const int32_t height
     SpawnStartAndEndLocation();
 }
 
+bool LabyrinthGenerator::IsGoblet(const int32_t x, const int32_t y) const
+{
+    return m_Grid[XYToIndex(x, y)] == 'E';
+}
+
+bool LabyrinthGenerator::IsStart(int32_t x, int32_t y) const
+{
+    return m_Grid[XYToIndex(x, y)] == 'S';
+}
+
 bool LabyrinthGenerator::IsWalled(const int32_t x, const int32_t y) const
 {
     return m_Grid[XYToIndex(x, y)] == '#';
