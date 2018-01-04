@@ -66,8 +66,15 @@ static void OnMouseMove(int32_t deltaX, int32_t deltaY)
     float sensitivity = Settings::GetInstance()->GetMouseSensitivity();
     int pitchMultiplier = Settings::GetInstance()->IsMouseReversed() ? -1 : 1;
 
-    rotation = glm::vec4(rotation, 0.0f) * glm::rotate(-sensitivity * deltaX, rotationAxis);
+    rotation = glm::vec4(rotation, 0.0f) * glm::rotate(sensitivity * deltaX, rotationAxis);
+
+	glm::vec3 tempRotation = rotation;
     rotation = glm::vec4(rotation, 0.0f) * glm::rotate(pitchMultiplier * sensitivity * deltaY, pitchAxis);
+
+	if (glm::abs(glm::dot(glm::normalize(rotation), upVector)) > 0.9)
+	{
+		rotation = tempRotation;
+	}
 
     RenderingEngine::Camera::GetInstance()->SetRotation(rotation);
 }

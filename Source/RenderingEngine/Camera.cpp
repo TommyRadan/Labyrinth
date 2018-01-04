@@ -33,7 +33,13 @@ RenderingEngine::Camera* RenderingEngine::Camera::GetInstance()
 
 void RenderingEngine::Camera::SetPosition(const glm::vec3& pos)
 {
-    m_Position = pos;
+	m_Position = pos;
+
+	if (m_Position.z < 0.5f)
+	{
+		m_Position.z = 0.5f;
+	}
+
     m_IsViewMatrixDirty = true;
 }
 
