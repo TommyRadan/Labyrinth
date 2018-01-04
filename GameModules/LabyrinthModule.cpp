@@ -47,7 +47,7 @@ static void AddLabyrinth()
 
 static void OnGameStart()
 {
-	objFile = RenderingEngine::LoadOBJ("../Assets/obj/Wall/Wall.obj");
+	objFile = RenderingEngine::LoadOBJ("../Assets/obj/Wall/Wall-old.obj");
 	mesh.UploadOBJ(objFile);
 
 	image = new RenderingEngine::Image("../Assets/textures/brick-wall.jpg");
