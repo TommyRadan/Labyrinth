@@ -36,6 +36,7 @@ namespace RenderingEngine
         {
             window_flags |= SDL_WINDOW_FULLSCREEN;
 			SDL_ShowCursor(SDL_DISABLE);
+			SDL_SetRelativeMouseMode(SDL_TRUE);
         }
 
         SDL_GL_SetAttribute(SDL_GL_RED_SIZE, 8);

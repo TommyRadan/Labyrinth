@@ -8,8 +8,6 @@
 #include <RenderingEngine\Renderables\Model.hpp>
 #include <RenderingEngine\Image\Image.hpp>
 
-#include <RenderingEngine\Camera.hpp>
-
 static RenderingEngine::Model* model;
 static RenderingEngine::Image* image;
 static RenderingEngine::OpenGL::Texture* texture;
