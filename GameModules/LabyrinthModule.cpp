@@ -7,26 +7,68 @@
 #include <RenderingEngine\Image\Image.hpp>
 
 #include <Infrastructure\LabyrinthGenerator.hpp>
+#include <RenderingEngine\Camera.hpp>
+#include <RenderingEngine\Window.hpp>
 
-static std::vector<RenderingEngine::Vertex> objFile;
-static RenderingEngine::Mesh mesh;
-static RenderingEngine::Image* image;
-static RenderingEngine::OpenGL::Texture* texture;
+static std::vector<RenderingEngine::Vertex> wallObjFile;
+static RenderingEngine::Mesh wallMesh;
+static RenderingEngine::Image* wallImage;
+static RenderingEngine::OpenGL::Texture* wallTexture;
+static std::vector<RenderingEngine::Model*> wallModels;
 
-static std::vector<RenderingEngine::Model*> models;
+static std::vector<RenderingEngine::Vertex> gobletObjFile;
+static RenderingEngine::Mesh gobletMesh;
+static RenderingEngine::Image* gobletImage;
+static RenderingEngine::OpenGL::Texture* gobletTexture;
+static RenderingEngine::Model* gobletModel;
+
+static glm::vec3 gobletLocation;
 
 static void AddWall(glm::vec2 position)
 {
 	RenderingEngine::Model* model = new RenderingEngine::Model;
-	model->UploadMesh(mesh);
+	model->UploadMesh(wallMesh);
 
 	model->SetPosition({position.x, position.y, 0.0f});
-	model->SetScale({ 1.0f, 0.5f, 1.0f });
 
-	model->options.Textures["tex"] = texture;
+	model->options.Textures["tex"] = wallTexture;
 	RenderingEngine::Context::GetInstance()->AddRenderable(model);
 
-	models.push_back(model);
+	wallModels.push_back(model);
+}
+
+static void AddGoblet(glm::vec2 position)
+{
+	gobletLocation = glm::vec3(position, 0.0f);
+
+	gobletObjFile = RenderingEngine::LoadOBJ("../Assets/obj/Goblet/Gablet.obj");
+	gobletMesh.UploadOBJ(gobletObjFile);
+
+	gobletImage = new RenderingEngine::Image("../Assets/textures/gold.jpg");
+
+	gobletTexture = new RenderingEngine::OpenGL::Texture;
+
+	gobletTexture->Image2D(gobletImage->GetPixels(),
+		RenderingEngine::OpenGL::DataType::UnsignedByte,
+		RenderingEngine::OpenGL::Format::RGBA,
+		gobletImage->GetWidth(),
+		gobletImage->GetHeight(),
+		RenderingEngine::OpenGL::InternalFormat::RGBA);
+
+	gobletTexture->SetWrappingR(RenderingEngine::OpenGL::Wrapping::MirroredRepeat);
+	gobletTexture->SetWrappingS(RenderingEngine::OpenGL::Wrapping::MirroredRepeat);
+	gobletTexture->SetWrappingT(RenderingEngine::OpenGL::Wrapping::MirroredRepeat);
+	gobletTexture->SetFilters(RenderingEngine::OpenGL::Filter::LinearMipmapNearest, RenderingEngine::OpenGL::Filter::NearestMipmapLinear);
+	gobletTexture->GenerateMipmaps();
+
+	gobletModel = new RenderingEngine::Model;
+	gobletModel->UploadMesh(gobletMesh);
+
+	gobletModel->SetPosition({ position.x, position.y, 0.0f });
+	gobletModel->SetScale({0.5f, 0.5f, 0.5f});
+
+	gobletModel->options.Textures["tex"] = gobletTexture;
+	RenderingEngine::Context::GetInstance()->AddRenderable(gobletModel);
 }
 
 static void AddLabyrinth()
@@ -41,48 +83,75 @@ static void AddLabyrinth()
 			{
 				AddWall({i, j});
 			}
+
+			if (generator.IsStart(i, j))
+			{
+				RenderingEngine::Camera::GetInstance()->SetPosition({i, j, 1.8f});
+			}
+
+			if (generator.IsGoblet(i, j))
+			{
+				AddGoblet({ i, j });
+			}
 		}
 	}
 }
 
 static void OnGameStart()
 {
-	objFile = RenderingEngine::LoadOBJ("../Assets/obj/Wall/Wall-old.obj");
-	mesh.UploadOBJ(objFile);
+	wallObjFile = RenderingEngine::LoadOBJ("../Assets/obj/Wall/Wall.obj");
+	wallMesh.UploadOBJ(wallObjFile);
 
-	image = new RenderingEngine::Image("../Assets/textures/brick-wall.jpg");
+	wallImage = new RenderingEngine::Image("../Assets/textures/brick-wall.jpg");
 
-	texture = new RenderingEngine::OpenGL::Texture;
+	wallTexture = new RenderingEngine::OpenGL::Texture;
 
-	texture->Image2D(image->GetPixels(),
+	wallTexture->Image2D(wallImage->GetPixels(),
 		RenderingEngine::OpenGL::DataType::UnsignedByte,
 		RenderingEngine::OpenGL::Format::RGBA,
-		image->GetWidth(),
-		image->GetHeight(),
+		wallImage->GetWidth(),
+		wallImage->GetHeight(),
 		RenderingEngine::OpenGL::InternalFormat::RGBA);
 
-	texture->SetWrappingR(RenderingEngine::OpenGL::Wrapping::MirroredRepeat);
-	texture->SetWrappingS(RenderingEngine::OpenGL::Wrapping::MirroredRepeat);
-	texture->SetWrappingT(RenderingEngine::OpenGL::Wrapping::MirroredRepeat);
-	texture->SetFilters(RenderingEngine::OpenGL::Filter::LinearMipmapNearest, RenderingEngine::OpenGL::Filter::NearestMipmapLinear);
-	texture->GenerateMipmaps();
+	wallTexture->SetWrappingR(RenderingEngine::OpenGL::Wrapping::MirroredRepeat);
+	wallTexture->SetWrappingS(RenderingEngine::OpenGL::Wrapping::MirroredRepeat);
+	wallTexture->SetWrappingT(RenderingEngine::OpenGL::Wrapping::MirroredRepeat);
+	wallTexture->SetFilters(RenderingEngine::OpenGL::Filter::LinearMipmapNearest, RenderingEngine::OpenGL::Filter::NearestMipmapLinear);
+	wallTexture->GenerateMipmaps();
 
 	AddLabyrinth();
 }
 
 static void OnGameEnd()
 {
-	for (auto& model : models)
+	for (auto& model : wallModels)
 	{
 		delete model;
 	}
 	
-	delete texture;
-	delete image;
+	delete wallTexture;
+	delete wallImage;
+
+	delete gobletImage;
+	delete gobletTexture;
+	delete gobletModel;
+}
+
+static void OnFrame(uint32_t deltaTime)
+{
+	(void) deltaTime;
+
+	glm::vec3 camPos = RenderingEngine::Camera::GetInstance()->GetPosition();
+
+	if (glm::length(camPos - gobletLocation) < 1.5f)
+	{
+		EventProcessing::Context::GetInstance()->RequestQuit();
+	}
 }
 
 bool ModuleInit()
 {
+	EventProcessing::EventHandler::GetInstance()->RegisterOnFrameCallback(OnFrame);
 	EventProcessing::EventHandler::GetInstance()->RegisterOnGameStartCallback(OnGameStart);
 	EventProcessing::EventHandler::GetInstance()->RegisterOnGameEndCallback(OnGameStart);
 	return true;
