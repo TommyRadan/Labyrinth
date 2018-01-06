@@ -98,7 +98,7 @@ static void AddLabyrinth()
 
 			if (generator.IsStart(i, j))
 			{
-				RenderingEngine::Camera::GetInstance()->SetPosition({i, j, 1.8f});
+				RenderingEngine::Camera::GetInstance()->SetPosition({i, j, 1.3f});
 			}
 
 			if (generator.IsGoblet(i, j))
@@ -155,7 +155,7 @@ static void OnFrame(uint32_t deltaTime)
 
 	glm::vec3 camPos = RenderingEngine::Camera::GetInstance()->GetPosition();
 
-	if (glm::length(camPos - gobletLocation) < 1.5f)
+	if (glm::length(camPos - gobletLocation) < 2.0f)
 	{
 		EventProcessing::Context::GetInstance()->RequestQuit();
 	}

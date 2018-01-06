@@ -4,6 +4,7 @@
 #define GLM_ENABLE_EXPERIMENTAL
 #include <gtx/vector_angle.hpp>
 
+#ifdef _DEBUG
 static void OnKeyPressed(EventProcessing::KeyCode keyCode, uint32_t deltaTime)
 {
     glm::vec3 position = RenderingEngine::Camera::GetInstance()->GetPosition();
@@ -23,8 +24,7 @@ static void OnKeyPressed(EventProcessing::KeyCode keyCode, uint32_t deltaTime)
             break;
 
         case EventProcessing::KeyCode::A:
-            RenderingEngine::Camera::GetInstance()->SetPosition(position - glm::cross(rotation,
-                                                                                      upVector) * distance);
+            RenderingEngine::Camera::GetInstance()->SetPosition(position - glm::cross(rotation, upVector) * distance);
             break;
 
         case EventProcessing::KeyCode::S:
@@ -32,8 +32,7 @@ static void OnKeyPressed(EventProcessing::KeyCode keyCode, uint32_t deltaTime)
             break;
 
         case EventProcessing::KeyCode::D:
-            RenderingEngine::Camera::GetInstance()->SetPosition(position + glm::cross(rotation,
-                                                                                      upVector) * distance);
+            RenderingEngine::Camera::GetInstance()->SetPosition(position + glm::cross(rotation, upVector) * distance);
             break;
 
         case EventProcessing::KeyCode::SPACE:
@@ -48,6 +47,42 @@ static void OnKeyPressed(EventProcessing::KeyCode keyCode, uint32_t deltaTime)
             break;
     }
 }
+#else
+static void OnKeyPressed(EventProcessing::KeyCode keyCode, uint32_t deltaTime)
+{
+	glm::vec3 position = RenderingEngine::Camera::GetInstance()->GetPosition();
+	glm::vec3 rotation = RenderingEngine::Camera::GetInstance()->GetRotation();
+	float speed = 3.0f;
+	if (EventProcessing::EventHandler::GetInstance()->IsKeyPressed(EventProcessing::KeyCode::SHIFT))
+	{
+		speed = 6.0f;
+	}
+	float distance = speed * ((float)deltaTime / 1000);
+	glm::vec3 upVector{ 0.0f, 0.0f, 1.0f };
+
+	switch (keyCode)
+	{
+	case EventProcessing::KeyCode::W:
+		RenderingEngine::Camera::GetInstance()->SetPosition(position + glm::vec3{rotation.x, rotation.y, 0.0f} * distance);
+		break;
+
+	case EventProcessing::KeyCode::A:
+		RenderingEngine::Camera::GetInstance()->SetPosition(position - glm::cross(rotation, upVector) * distance);
+		break;
+
+	case EventProcessing::KeyCode::S:
+		RenderingEngine::Camera::GetInstance()->SetPosition(position - glm::vec3{ rotation.x, rotation.y, 0.0f } * distance);
+		break;
+
+	case EventProcessing::KeyCode::D:
+		RenderingEngine::Camera::GetInstance()->SetPosition(position + glm::cross(rotation, upVector) * distance);
+		break;
+
+	default:
+		break;
+	}
+}
+#endif
 
 static void OnMouseMove(int32_t deltaX, int32_t deltaY)
 {
