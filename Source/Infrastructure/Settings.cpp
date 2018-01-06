@@ -20,7 +20,7 @@ Settings::Settings()
     m_IsDoubleBuffered = true;
     m_FieldOfView = 70.0f;
     m_MouseSensitivity = 0.005f;
-    m_IsMouseReversed = true;
+    m_IsMouseReversed = false;
 }
 
 Settings* const Settings::GetInstance()
