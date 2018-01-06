@@ -24,6 +24,18 @@ static RenderingEngine::Model* gobletModel;
 
 static glm::vec3 gobletLocation;
 
+#ifdef _DEBUG
+#define GOBLET_OBJ "../Assets/obj/Goblet/Gablet.obj"
+#define GOLD_JPG "../Assets/textures/gold.jpg"
+#define WALL_OBJ "../Assets/obj/Wall/Wall.obj"
+#define BRICK_WALL_JPG "../Assets/textures/brick-wall.jpg"
+#else
+#define GOBLET_OBJ "Assets/obj/Goblet/Gablet.obj"
+#define GOLD_JPG "Assets/textures/gold.jpg"
+#define WALL_OBJ "Assets/obj/Wall/Wall.obj"
+#define BRICK_WALL_JPG "Assets/textures/brick-wall.jpg"
+#endif
+
 static void AddWall(glm::vec2 position)
 {
 	RenderingEngine::Model* model = new RenderingEngine::Model;
@@ -41,10 +53,10 @@ static void AddGoblet(glm::vec2 position)
 {
 	gobletLocation = glm::vec3(position, 0.0f);
 
-	gobletObjFile = RenderingEngine::LoadOBJ("../Assets/obj/Goblet/Gablet.obj");
+	gobletObjFile = RenderingEngine::LoadOBJ(GOBLET_OBJ);
 	gobletMesh.UploadOBJ(gobletObjFile);
 
-	gobletImage = new RenderingEngine::Image("../Assets/textures/gold.jpg");
+	gobletImage = new RenderingEngine::Image(GOLD_JPG);
 
 	gobletTexture = new RenderingEngine::OpenGL::Texture;
 
@@ -99,10 +111,10 @@ static void AddLabyrinth()
 
 static void OnGameStart()
 {
-	wallObjFile = RenderingEngine::LoadOBJ("../Assets/obj/Wall/Wall.obj");
+	wallObjFile = RenderingEngine::LoadOBJ(WALL_OBJ);
 	wallMesh.UploadOBJ(wallObjFile);
 
-	wallImage = new RenderingEngine::Image("../Assets/textures/brick-wall.jpg");
+	wallImage = new RenderingEngine::Image(BRICK_WALL_JPG);
 
 	wallTexture = new RenderingEngine::OpenGL::Texture;
 

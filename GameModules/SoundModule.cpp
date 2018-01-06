@@ -2,7 +2,11 @@
 #include <AudioEngine/SoundSource.hpp>
 #include <Infrastructure/GameModule.hpp>
 
+#ifdef _DEBUG
 #define WAV_MYSTERY "../Assets/sound/Mystery.wav"
+#else
+#define WAV_MYSTERY "Assets/sound/Mystery.wav"
+#endif
 
 AudioMaster *audioMaster;
 SoundSource *backgroundMusic;

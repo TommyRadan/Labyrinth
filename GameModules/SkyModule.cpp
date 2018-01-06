@@ -14,15 +14,23 @@ static RenderingEngine::Model* model;
 static RenderingEngine::Image* image;
 static RenderingEngine::OpenGL::Texture* texture;
 
+#ifdef _DEBUG
+#define SKYBOX_OBJ "../Assets/obj/SkyBox/SkyBox.obj"
+#define SKYBOX_PNG "../Assets/textures/skybox.png"
+#else
+#define SKYBOX_OBJ "Assets/obj/SkyBox/SkyBox.obj"
+#define SKYBOX_PNG "Assets/textures/skybox.png"
+#endif
+
 static void OnGameStart()
 {
-	objFile = RenderingEngine::LoadOBJ("../Assets/obj/SkyBox/SkyBox.obj");
+	objFile = RenderingEngine::LoadOBJ(SKYBOX_OBJ);
 	mesh.UploadOBJ(objFile);
 
 	model = new RenderingEngine::Model;
 	model->UploadMesh(mesh);
 
-	image = new RenderingEngine::Image("../Assets/textures/skybox.png");
+	image = new RenderingEngine::Image(SKYBOX_PNG);
 
 	texture = new RenderingEngine::OpenGL::Texture;
 

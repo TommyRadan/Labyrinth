@@ -12,12 +12,18 @@ static RenderingEngine::Model* model;
 static RenderingEngine::Image* image;
 static RenderingEngine::OpenGL::Texture* texture;
 
+#ifdef _DEBUG
+#define GRASS_PNG "../Assets/textures/grass.png"
+#else
+#define GRASS_PNG "Assets/textures/grass.png"
+#endif
+
 static void OnGameStart()
 {
 	model = new RenderingEngine::Model;
 	model->UploadMesh(RenderingEngine::GenerateTerrain());
 
-	image = new RenderingEngine::Image("../Assets/textures/grass.png");
+	image = new RenderingEngine::Image(GRASS_PNG);
 	texture = new RenderingEngine::OpenGL::Texture;
 
 	texture->Image2D(image->GetPixels(),
