@@ -1,6 +1,5 @@
 #include <PhysicsEngine/PhysicsEngine.hpp>
 #include <RenderingEngine/Camera.hpp>
-#include <iostream>
 
 PhysicsEngine::Context* PhysicsEngine::Context::GetInstance()
 {
@@ -24,6 +23,47 @@ void PhysicsEngine::Context::Quit()
 
 void PhysicsEngine::Context::Process()
 {
+	m_CurrentCamPosition = RenderingEngine::Camera::GetInstance()->GetPosition();
+
+	if (!isColliding())
+	{
+		goto end;
+	}
+
+	RenderingEngine::Camera::GetInstance()->SetPosition({ m_CurrentCamPosition.x, m_LastCamPosition.y, m_CurrentCamPosition.z });
+
+	if (!isColliding())
+	{
+		goto end;
+	}
+
+	RenderingEngine::Camera::GetInstance()->SetPosition({ m_LastCamPosition.x, m_CurrentCamPosition.y, m_CurrentCamPosition.z });
+
+	if (!isColliding())
+	{
+		goto end;
+	}
+
+	RenderingEngine::Camera::GetInstance()->SetPosition({ m_LastCamPosition.x, m_LastCamPosition.y, m_CurrentCamPosition.z });
+
+	if (!isColliding())
+	{
+		goto end;
+	}
+
+	RenderingEngine::Camera::GetInstance()->SetPosition(m_LastCamPosition);
+
+	end:
+	m_LastCamPosition = RenderingEngine::Camera::GetInstance()->GetPosition();
+}
+
+void PhysicsEngine::Context::AddAABB(const PhysicsEngine::AxisAlignedBoundingBox& aabb)
+{
+	m_AABBs.push_back(aabb);
+}
+
+bool PhysicsEngine::Context::isColliding()
+{
 	bool isInCollision = false;
 
 	for (auto& aabb : m_AABBs)
@@ -35,16 +75,5 @@ void PhysicsEngine::Context::Process()
 		}
 	}
 
-	if (isInCollision)
-	{
-		//std::cout << "Collision" << std::endl;
-		RenderingEngine::Camera::GetInstance()->SetPosition(m_LastCamPosition);
-	}
-
-	m_LastCamPosition = RenderingEngine::Camera::GetInstance()->GetPosition();
-}
-
-void PhysicsEngine::Context::AddAABB(const PhysicsEngine::AxisAlignedBoundingBox& aabb)
-{
-	m_AABBs.push_back(aabb);
+	return isInCollision;
 }

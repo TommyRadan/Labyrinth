@@ -23,6 +23,10 @@ namespace PhysicsEngine
 
 	private:
 		glm::vec3 m_LastCamPosition;
+		glm::vec3 m_CurrentCamPosition;
+
 		std::vector<PhysicsEngine::AxisAlignedBoundingBox> m_AABBs;
+
+		bool isColliding();
 	};
 }
