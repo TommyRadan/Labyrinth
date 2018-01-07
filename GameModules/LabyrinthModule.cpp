@@ -164,8 +164,9 @@ static void OnFrame(uint32_t deltaTime)
 	(void) deltaTime;
 
 	glm::vec3 camPos = RenderingEngine::Camera::GetInstance()->GetPosition();
+	camPos.z = 0.0f;
 
-	if (glm::length(camPos - gobletLocation) < 2.0f)
+	if (glm::length(camPos - gobletLocation) < 1.0f)
 	{
 		EventProcessing::Context::GetInstance()->RequestQuit();
 	}
