@@ -3,13 +3,13 @@
 
 #include "AudioEngine/AudioMaster.hpp"
 
-AudioMaster::AudioMaster()
+AudioEngine::AudioMaster::AudioMaster()
 {
     alutInit(nullptr, nullptr);
     alGetError();
 }
 
-AudioMaster::~AudioMaster()
+AudioEngine::AudioMaster::~AudioMaster()
 {
     for (auto& buffer : m_Buffers)
     {
@@ -19,7 +19,7 @@ AudioMaster::~AudioMaster()
     alutExit();
 }
 
-AudioMaster* AudioMaster::GetInstance()
+AudioEngine::AudioMaster* AudioEngine::AudioMaster::GetInstance()
 {
     static AudioMaster* instance = nullptr;
 
@@ -31,7 +31,7 @@ AudioMaster* AudioMaster::GetInstance()
     return instance;
 }
 
-uint32_t AudioMaster::LoadSound(const std::string &filePath)
+uint32_t AudioEngine::AudioMaster::LoadSound(const std::string &filePath)
 {
     uint32_t buffer;
 
@@ -43,17 +43,17 @@ uint32_t AudioMaster::LoadSound(const std::string &filePath)
     return buffer;
 }
 
-void AudioMaster::SetListenerPosition(const float x, const float y, const float z)
+void AudioEngine::AudioMaster::SetListenerPosition(const float x, const float y, const float z)
 {
     alListener3f(AL_POSITION, x, y, z);
 }
 
-void AudioMaster::SetListenerVelocity(const float x, const float y, const float z)
+void AudioEngine::AudioMaster::SetListenerVelocity(const float x, const float y, const float z)
 {
     alListener3f(AL_VELOCITY, x, y, z);
 }
 
-void AudioMaster::SetListenerOrientation(const float listenerOrientation[6])
+void AudioEngine::AudioMaster::SetListenerOrientation(const float listenerOrientation[6])
 {
     alListenerfv(AL_ORIENTATION, listenerOrientation);
 }

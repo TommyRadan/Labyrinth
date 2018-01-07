@@ -10,13 +10,13 @@
 #define WAV_MYSTERY "Assets/sound/Mystery.wav"
 #endif
 
-AudioMaster *audioMaster;
-SoundSource *backgroundMusic;
+AudioEngine::AudioMaster *audioMaster;
+AudioEngine::SoundSource *backgroundMusic;
 
 static void OnGameStart()
 {
-    audioMaster = AudioMaster::GetInstance();
-    backgroundMusic = new SoundSource();
+    audioMaster = AudioEngine::AudioMaster::GetInstance();
+    backgroundMusic = new AudioEngine::SoundSource();
 
     const auto buffer = audioMaster->LoadSound(WAV_MYSTERY);
 
