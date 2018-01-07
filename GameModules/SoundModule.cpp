@@ -31,9 +31,9 @@ static void OnGameEnd()
     delete backgroundMusic;
 }
 
-bool ModuleInit()
+GAME_MODULE()
 {
-    EventProcessing::EventHandler::GetInstance()->RegisterOnGameStartCallback(OnGameStart);
-    EventProcessing::EventHandler::GetInstance()->RegisterOnGameEndCallback(OnGameEnd);
+	REGISTER_CALLBACK(OnGameStart, OnGameStart);
+	REGISTER_CALLBACK(OnGameEnd, OnGameEnd);
     return true;
 }

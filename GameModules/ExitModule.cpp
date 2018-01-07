@@ -8,8 +8,8 @@ static void OnKeyDown(EventProcessing::KeyCode keyCode)
     }
 }
 
-bool ModuleInit()
+GAME_MODULE()
 {
-    EventProcessing::EventHandler::GetInstance()->RegisterOnKeyDownCallback(OnKeyDown);
+	REGISTER_CALLBACK(OnKeyDown, OnKeyDown);
     return true;
 }

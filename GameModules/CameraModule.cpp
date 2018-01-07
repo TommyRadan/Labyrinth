@@ -114,9 +114,9 @@ static void OnMouseMove(int32_t deltaX, int32_t deltaY)
     RenderingEngine::Camera::GetInstance()->SetRotation(rotation);
 }
 
-bool ModuleInit()
+GAME_MODULE()
 {
-    EventProcessing::EventHandler::GetInstance()->RegisterKeyPressedCallback(OnKeyPressed);
-    EventProcessing::EventHandler::GetInstance()->RegisterOnMouseMoveCallback(OnMouseMove);
+    REGISTER_CALLBACK(KeyPressed, OnKeyPressed);
+	REGISTER_CALLBACK(OnMouseMove, OnMouseMove);
     return true;
 }

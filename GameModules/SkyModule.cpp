@@ -72,10 +72,10 @@ static void OnFrame(uint32_t deltaTime)
 	model->SetPosition(RenderingEngine::Camera::GetInstance()->GetPosition());
 }
 
-bool ModuleInit()
+GAME_MODULE()
 {
-	EventProcessing::EventHandler::GetInstance()->RegisterOnGameStartCallback(OnGameStart);
-	EventProcessing::EventHandler::GetInstance()->RegisterOnGameEndCallback(OnGameEnd);
-	EventProcessing::EventHandler::GetInstance()->RegisterOnFrameCallback(OnFrame);
+	REGISTER_CALLBACK(OnGameStart, OnGameStart);
+	REGISTER_CALLBACK(OnGameEnd, OnGameEnd);
+	REGISTER_CALLBACK(OnFrame, OnFrame);
 	return true;
 }

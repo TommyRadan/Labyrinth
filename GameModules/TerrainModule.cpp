@@ -53,9 +53,9 @@ static void OnGameEnd()
 	delete image;
 }
 
-bool ModuleInit()
+GAME_MODULE()
 {
-	EventProcessing::EventHandler::GetInstance()->RegisterOnGameStartCallback(OnGameStart);
-	EventProcessing::EventHandler::GetInstance()->RegisterOnGameEndCallback(OnGameStart);
+	REGISTER_CALLBACK(OnGameStart, OnGameStart);
+	REGISTER_CALLBACK(OnGameEnd, OnGameStart);
 	return true;
 }
