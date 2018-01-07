@@ -1,6 +1,9 @@
 #pragma once
 
 #include <Infrastructure/Component.hpp>
+#include <PhysicsEngine/AxisAlignedBoundingBox.hpp>
+#include <vector>
+#include <glm.hpp>
 
 namespace PhysicsEngine
 {
@@ -13,5 +16,13 @@ namespace PhysicsEngine
 
 		void Init() final;
 		void Quit() final;
+
+		void Process();
+
+		void AddAABB(const PhysicsEngine::AxisAlignedBoundingBox& aabb);
+
+	private:
+		glm::vec3 m_LastCamPosition;
+		std::vector<PhysicsEngine::AxisAlignedBoundingBox> m_AABBs;
 	};
 }

@@ -10,6 +10,8 @@
 #include <RenderingEngine\Camera.hpp>
 #include <RenderingEngine\Window.hpp>
 
+#include <PhysicsEngine/PhysicsEngine.hpp>
+
 static std::vector<RenderingEngine::Vertex> wallObjFile;
 static RenderingEngine::Mesh wallMesh;
 static RenderingEngine::Image* wallImage;
@@ -52,6 +54,9 @@ static void AddWall(glm::vec2 position)
 	RenderingEngine::Context::GetInstance()->AddRenderable(model);
 
 	wallModels.push_back(model);
+
+	PhysicsEngine::AxisAlignedBoundingBox aabb(position.x - 0.5f, position.y - 0.5f, 0.0f, position.x + 0.5f, position.y + 0.5f, 2.0f);
+	PhysicsEngine::Context::GetInstance()->AddAABB(aabb);
 }
 
 static void AddGoblet(glm::vec2 position)

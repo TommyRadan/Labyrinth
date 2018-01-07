@@ -30,6 +30,7 @@ int main(int argc, char* argv[])
         for (;;)
         {
             EventProcessing::EventHandler::GetInstance()->HandleEvents();
+			PhysicsEngine::Context::GetInstance()->Process();
             RenderingEngine::Context::GetInstance()->Render();
 
             if (EventProcessing::Context::GetInstance()->IsQuitRequested()) break;
