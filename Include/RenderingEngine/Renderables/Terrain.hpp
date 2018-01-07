@@ -17,6 +17,6 @@ namespace RenderingEngine
         OpenGL::VertexArray m_VertexArrayObject;
         OpenGL::VertexBuffer m_VertexBufferObject;
 
-        int32_t m_VertexCount;
+        size_t m_VertexCount;
     };
 }

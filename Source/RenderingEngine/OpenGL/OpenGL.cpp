@@ -97,10 +97,10 @@ void RenderingEngine::OpenGL::Context::BindFramebuffer()
 void RenderingEngine::OpenGL::Context::DrawArrays(const RenderingEngine::OpenGL::VertexArray& vao,
                                                   const RenderingEngine::OpenGL::Primitive mode,
                                                   const unsigned int offset,
-                                                  const unsigned int vertices)
+                                                  const size_t vertices)
 {
     glBindVertexArray(vao.Handle());
-    glDrawArrays((GLenum)mode, offset, vertices);
+    glDrawArrays((GLenum)mode, offset, (GLsizei)vertices);
     glBindVertexArray(0);
 }
 
