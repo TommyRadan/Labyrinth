@@ -67,6 +67,12 @@
     <Filter Include="Source\AudioEngine">
       <UniqueIdentifier>{89d2a1a2-ba09-4e10-bf49-2bc42b9fc4fd}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Include\PhysicsEngine">
+      <UniqueIdentifier>{22a8b294-e616-4583-9bd7-f94bfc5f135b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\PhysicsEngine">
+      <UniqueIdentifier>{27588d02-5f3c-44b7-b41e-2cc0847b1482}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Include\EventProcessing\EventHandler.hpp">
@@ -176,6 +182,12 @@
     </ClInclude>
     <ClInclude Include="..\Include\Infrastructure\Random.hpp">
       <Filter>Include\Infrastructure</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\PhysicsEngine\PhysicsEngine.hpp">
+      <Filter>Include\PhysicsEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\PhysicsEngine\AxisAlignedBoundingBox.hpp">
+      <Filter>Include\PhysicsEngine</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -292,6 +304,12 @@
     </ClCompile>
     <ClCompile Include="..\GameModules\LabyrinthModule.cpp">
       <Filter>GameModules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\PhysicsEngine\PhysicsEngine.cpp">
+      <Filter>Source\PhysicsEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\PhysicsEngine\AxisAlignedBoundingBox.cpp">
+      <Filter>Source\PhysicsEngine</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

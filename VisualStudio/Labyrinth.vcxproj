@@ -151,6 +151,8 @@ copy /Y "$(SolutionDir)..\ThirdParty\OpenAL\lib\alut.dll"  "$(TargetDir)alut.dll
     <ClInclude Include="..\Include\Infrastructure\LabyrinthGenerator.hpp" />
     <ClInclude Include="..\Include\Infrastructure\Random.hpp" />
     <ClInclude Include="..\Include\Infrastructure\Settings.hpp" />
+    <ClInclude Include="..\Include\PhysicsEngine\AxisAlignedBoundingBox.hpp" />
+    <ClInclude Include="..\Include\PhysicsEngine\PhysicsEngine.hpp" />
     <ClInclude Include="..\Include\RenderingEngine\Camera.hpp" />
     <ClInclude Include="..\Include\RenderingEngine\Image\Image.hpp" />
     <ClInclude Include="..\Include\RenderingEngine\Mesh\Mesh.hpp" />
@@ -195,6 +197,8 @@ copy /Y "$(SolutionDir)..\ThirdParty\OpenAL\lib\alut.dll"  "$(TargetDir)alut.dll
     <ClCompile Include="..\Source\Infrastructure\LabyrinthGenerator.cpp" />
     <ClCompile Include="..\Source\Infrastructure\Random.cpp" />
     <ClCompile Include="..\Source\Infrastructure\Settings.cpp" />
+    <ClCompile Include="..\Source\PhysicsEngine\AxisAlignedBoundingBox.cpp" />
+    <ClCompile Include="..\Source\PhysicsEngine\PhysicsEngine.cpp" />
     <ClCompile Include="..\Source\RenderingEngine\Camera.cpp" />
     <ClCompile Include="..\Source\RenderingEngine\Image\Image.cpp" />
     <ClCompile Include="..\Source\RenderingEngine\Mesh\Mesh.cpp" />
