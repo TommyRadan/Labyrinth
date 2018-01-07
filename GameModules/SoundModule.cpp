@@ -4,7 +4,9 @@
 
 #ifdef _DEBUG
 #define WAV_MYSTERY "../Assets/sound/Mystery.wav"
-#else
+#elif _RELEASE
+#define WAV_MYSTERY "../Assets/sound/Mystery.wav"
+#elif _DEPLOY
 #define WAV_MYSTERY "Assets/sound/Mystery.wav"
 #endif
 

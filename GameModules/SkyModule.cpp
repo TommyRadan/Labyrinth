@@ -17,7 +17,10 @@ static RenderingEngine::OpenGL::Texture* texture;
 #ifdef _DEBUG
 #define SKYBOX_OBJ "../Assets/obj/SkyBox/SkyBox.obj"
 #define SKYBOX_PNG "../Assets/textures/skybox.png"
-#else
+#elif _RELEASE
+#define SKYBOX_OBJ "../Assets/obj/SkyBox/SkyBox.obj"
+#define SKYBOX_PNG "../Assets/textures/skybox.png"
+#elif _DEPLOY
 #define SKYBOX_OBJ "Assets/obj/SkyBox/SkyBox.obj"
 #define SKYBOX_PNG "Assets/textures/skybox.png"
 #endif

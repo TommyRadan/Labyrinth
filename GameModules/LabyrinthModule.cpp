@@ -29,7 +29,12 @@ static glm::vec3 gobletLocation;
 #define GOLD_JPG "../Assets/textures/gold.jpg"
 #define WALL_OBJ "../Assets/obj/Wall/Wall.obj"
 #define BRICK_WALL_JPG "../Assets/textures/brick-wall.jpg"
-#else
+#elif _RELEASE
+#define GOBLET_OBJ "../Assets/obj/Goblet/Gablet.obj"
+#define GOLD_JPG "../Assets/textures/gold.jpg"
+#define WALL_OBJ "../Assets/obj/Wall/Wall.obj"
+#define BRICK_WALL_JPG "../Assets/textures/brick-wall.jpg"
+#elif _DEPLOY
 #define GOBLET_OBJ "Assets/obj/Goblet/Gablet.obj"
 #define GOLD_JPG "Assets/textures/gold.jpg"
 #define WALL_OBJ "Assets/obj/Wall/Wall.obj"

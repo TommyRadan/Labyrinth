@@ -94,6 +94,7 @@ copy /Y "$(SolutionDir)..\ThirdParty\OpenAL\lib\alut.dll"  "$(TargetDir)alut.dll
       <TreatWarningAsError>false</TreatWarningAsError>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
       <CompileAs>Default</CompileAs>
+      <PreprocessorDefinitions>_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -121,6 +122,7 @@ copy /Y "$(SolutionDir)..\ThirdParty\OpenAL\lib\alut.dll"  "$(TargetDir)alut.dll
       <TreatWarningAsError>false</TreatWarningAsError>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
       <CompileAs>Default</CompileAs>
+      <PreprocessorDefinitions>_DEPLOY;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>

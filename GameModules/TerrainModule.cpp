@@ -14,7 +14,9 @@ static RenderingEngine::OpenGL::Texture* texture;
 
 #ifdef _DEBUG
 #define GRASS_PNG "../Assets/textures/grass.png"
-#else
+#elif _RELEASE
+#define GRASS_PNG "../Assets/textures/grass.png"
+#elif _DEPLOY
 #define GRASS_PNG "Assets/textures/grass.png"
 #endif
 
