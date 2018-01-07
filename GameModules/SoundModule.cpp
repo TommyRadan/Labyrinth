@@ -1,7 +1,6 @@
 #include <AudioEngine/AudioMaster.hpp>
 #include <AudioEngine/SoundSource.hpp>
 #include <Infrastructure/GameModule.hpp>
-#include <iostream>
 
 #ifdef _DEBUG
 #define WAV_MYSTERY "../Assets/sound/Mystery.wav"
@@ -100,8 +99,8 @@ static void OnGameEnd()
 
 GAME_MODULE()
 {
-	REGISTER_CALLBACK(OnGameStart, OnGameStart);
-	REGISTER_CALLBACK(OnGameEnd, OnGameEnd);
+    REGISTER_CALLBACK(OnGameStart, OnGameStart);
+    REGISTER_CALLBACK(OnGameEnd, OnGameEnd);
     REGISTER_CALLBACK(OnKeyDown, PlayStepSound);
     REGISTER_CALLBACK(OnKeyUp, StopStepSound);
     REGISTER_CALLBACK(OnKeyDown, PlaySprintSound);
