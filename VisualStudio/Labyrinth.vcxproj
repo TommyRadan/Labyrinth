@@ -81,7 +81,8 @@
       <Command>copy /Y "$(SolutionDir)..\ThirdParty\GLEW\lib\glew32.dll" "$(TargetDir)glew32.dll"
 copy /Y "$(SolutionDir)..\ThirdParty\SDL2\lib\SDL2.dll" "$(TargetDir)SDL2.dll"
 copy /Y "$(SolutionDir)..\ThirdParty\OpenAL\lib\openal32.dll" "$(TargetDir)openal32.dll"
-copy /Y "$(SolutionDir)..\ThirdParty\OpenAL\lib\alut.dll"  "$(TargetDir)alut.dll"</Command>
+copy /Y "$(SolutionDir)..\ThirdParty\OpenAL\lib\alut.dll"  "$(TargetDir)alut.dll"
+copy /Y "$(SolutionDir)..\Redistributable\vcruntime140d.dll"  "$(TargetDir)vcruntime140d.dll"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -109,7 +110,8 @@ copy /Y "$(SolutionDir)..\ThirdParty\OpenAL\lib\alut.dll"  "$(TargetDir)alut.dll
       <Command>copy /Y "$(SolutionDir)..\ThirdParty\GLEW\lib\glew32.dll" "$(TargetDir)glew32.dll"
 copy /Y "$(SolutionDir)..\ThirdParty\SDL2\lib\SDL2.dll" "$(TargetDir)SDL2.dll"
 copy /Y "$(SolutionDir)..\ThirdParty\OpenAL\lib\openal32.dll" "$(TargetDir)openal32.dll"
-copy /Y "$(SolutionDir)..\ThirdParty\OpenAL\lib\alut.dll"  "$(TargetDir)alut.dll"</Command>
+copy /Y "$(SolutionDir)..\ThirdParty\OpenAL\lib\alut.dll"  "$(TargetDir)alut.dll"
+copy /Y "$(SolutionDir)..\Redistributable\vcruntime140d.dll"  "$(TargetDir)vcruntime140d.dll"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Deploy|x64'">
@@ -137,7 +139,8 @@ copy /Y "$(SolutionDir)..\ThirdParty\OpenAL\lib\alut.dll"  "$(TargetDir)alut.dll
       <Command>copy /Y "$(SolutionDir)..\ThirdParty\GLEW\lib\glew32.dll" "$(TargetDir)glew32.dll"
 copy /Y "$(SolutionDir)..\ThirdParty\SDL2\lib\SDL2.dll" "$(TargetDir)SDL2.dll"
 copy /Y "$(SolutionDir)..\ThirdParty\OpenAL\lib\openal32.dll" "$(TargetDir)openal32.dll"
-copy /Y "$(SolutionDir)..\ThirdParty\OpenAL\lib\alut.dll"  "$(TargetDir)alut.dll"</Command>
+copy /Y "$(SolutionDir)..\ThirdParty\OpenAL\lib\alut.dll"  "$(TargetDir)alut.dll"
+copy /Y "$(SolutionDir)..\Redistributable\vcruntime140d.dll"  "$(TargetDir)vcruntime140d.dll"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
